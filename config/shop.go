@@ -77,3 +77,36 @@ type ShopList struct {
 	OrderLastSyncTime int64             `json:"orderLastSyncTime"`
 	ApiInfo           map[string]string `json:"apiInfo"`
 }
+
+type ShopDetail struct {
+	Id                 int64  `json:"id"`
+	PlatformShopId     string `json:"platformShopId"`
+	ShopName           string `json:"shopName"`
+	ShopAvatarUrl      string `json:"shopAvatarUrl"`
+	ShopNameRemark     string `json:"shopNameRemark"`
+	IsLoginValid       bool   `json:"isLoginValid"`
+	ShopOrganizationId int64  `json:"shopOrganizationId"`
+	IsBan              bool   `json:"isBan"`
+	IsPublishSelect    bool   `json:"isPublishSelect"`
+	IsCloud            bool   `json:"isCloud"`
+	Created            int64  `json:"created"`
+	Updated            int64  `json:"updated"`
+
+	ChromeProfileName string `json:"chromeProfileName"`
+
+	CommercePlatformInfo CommercePlatformBaseInfo `json:"commercePlatformInfo"`
+	GroupInfo            ShopGroupBaseInfo        `json:"groupInfo"`
+
+	Currency          string            `json:"currency"`
+	OrderLastSyncTime int64             `json:"orderLastSyncTime"`
+	ApiInfo           map[string]string `json:"apiInfo"`
+}
+type ShopDetailQuery struct {
+	Id int64 `json:"id"`
+}
+
+type ShopDetailResult struct {
+	Success bool       `json:"success"`
+	Message string     `json:"message,omitempty"`
+	Data    ShopDetail `json:"data"`
+}

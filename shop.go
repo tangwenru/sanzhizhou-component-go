@@ -79,3 +79,25 @@ func (this *Shop) Dict(
 
 	return &shopDictResult.Data, nil
 }
+
+func (this *Shop) Detail(
+	userToken string,
+	shopId int64,
+) (*sanzhizhouComponentConfig.ShopDetail, error) {
+	query := sanzhizhouComponentConfig.ShopDetailQuery{
+		Id: shopId,
+	}
+	shopDetailResult := sanzhizhouComponentConfig.ShopDetailResult{}
+
+	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "shop/detail", &query, &shopDetailResult)
+
+	if err != nil {
+		fmt.Println("Shop Detail err:", string(bytesResult), err)
+	}
+
+	if !shopDetailResult.Success {
+		return &sanzhizhouComponentConfig.ShopDetail{}, errors.New(shopDetailResult.Message)
+	}
+
+	return &shopDetailResult.Data, nil
+}
