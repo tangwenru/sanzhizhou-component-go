@@ -7,7 +7,8 @@ import (
 )
 
 func main() {
-	GetOrderLastSyncTime()
+	//GetOrderLastSyncTime()
+	ShopDict()
 }
 
 func GetOrderLastSyncTime() {
@@ -19,4 +20,15 @@ func GetOrderLastSyncTime() {
 
 	fmt.Println("GetOrderLastSyncTime result:", result)
 	fmt.Println("GetOrderLastSyncTime err:", err)
+}
+
+func ShopDict() {
+	shop := sanzhizhouComponent.Shop{}
+	result, err := shop.Dict(
+		"a1217689d4cb45390feb02d4125f44f8",
+		&[]int64{5, 6, 7, 8, 9, 19, 20},
+	)
+
+	fmt.Println("ShopDict result:", result)
+	fmt.Println("ShopDict err:", err)
 }
