@@ -23,15 +23,21 @@ type GetOrderLastSyncTimeResult struct {
 }
 
 type ShopBaseInfo struct {
-	Id         int64  `json:"id"`
-	Name       string `json:"name"`
-	NameRemark string `json:"nameRemark"`
-	GroupName  string `json:"groupName"`
-	Currency   string `json:"currency"`
+	Id             int64  `json:"id"`
+	Name           string `json:"name"`
+	NameRemark     string `json:"nameRemark"`
+	GroupName      string `json:"groupName"`
+	Currency       string `json:"currency"`
+	PublishSetting string `json:"publishSetting"` // 可能为空，依赖接口参数
+	ApiInfo        string `json:"apiInfo"`        // 可能为空，依赖接口参数
 }
 
 type ShopDictQuery struct {
 	ShopIdList []int64 `json:"shopIdList"`
+	ShowExtend bool    `json:"showExtend"`
+}
+
+type ShopDictPostQuery struct {
 }
 
 type ShopDictResult struct {
@@ -66,9 +72,11 @@ func (this *Shop) GetOrderLastSyncTime(userToken string, shopId int64) (int64, e
 func (this *Shop) Dict(
 	userToken string,
 	shopIdList *[]int64,
+	showExtend bool,
 ) (*map[int64]ShopBaseInfo, error) {
 	query := ShopDictQuery{
 		ShopIdList: *shopIdList,
+		ShowExtend: showExtend,
 	}
 	shopDictResult := ShopDictResult{}
 
@@ -79,7 +87,7 @@ func (this *Shop) Dict(
 	}
 
 	if !shopDictResult.Success {
-		return nil, errors.New(shopDictResult.Message)
+		return &map[int64]ShopBaseInfo{}, errors.New(shopDictResult.Message)
 	}
 
 	return &shopDictResult.Data, nil

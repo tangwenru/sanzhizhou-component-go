@@ -27,8 +27,9 @@ func ShopDict() {
 	result, err := shop.Dict(
 		"a1217689d4cb45390feb02d4125f44f8",
 		&[]int64{5, 6, 7, 8, 9, 19, 20},
+		true,
 	)
 
-	fmt.Println("ShopDict result:", result)
+	fmt.Println(fmt.Sprintf("ShopDict result: %+v", result))
 	fmt.Println("ShopDict err:", err)
 }
