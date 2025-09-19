@@ -1,6 +1,6 @@
 package sanzhizhouComponentConfig
 
-type ShopGetOrderLastSyncTimeQuery struct {
+type ShopGetLastSyncTimeQuery struct {
 	ShopId int64 `json:"shopId"`
 }
 

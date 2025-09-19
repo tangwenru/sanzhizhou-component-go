@@ -16,7 +16,7 @@ func init() {
 }
 
 func (this *Shop) GetLastSyncTime(userToken string, shopId int64) (int64, error) {
-	query := sanzhizhouComponentConfig.ShopGetOrderLastSyncTimeQuery{
+	query := sanzhizhouComponentConfig.ShopGetLastSyncTimeQuery{
 		ShopId: shopId,
 	}
 	lastSyncTimeResult := sanzhizhouComponentConfig.GetLastSyncTimeResult{}
@@ -24,7 +24,7 @@ func (this *Shop) GetLastSyncTime(userToken string, shopId int64) (int64, error)
 	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "shop/getLastSyncTime", &query, &lastSyncTimeResult)
 
 	if err != nil {
-		fmt.Println("Shop GetOrderLastSyncTime err:", string(bytesResult), err)
+		fmt.Println("Shop GetLastSyncTime err:", string(bytesResult), err)
 	}
 
 	if !lastSyncTimeResult.Success {
@@ -46,7 +46,7 @@ func (this *Shop) List(
 	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "shop/list", &query, &shopDictResult)
 
 	if err != nil {
-		fmt.Println("Shop GetOrderLastSyncTime err:", string(bytesResult), err)
+		fmt.Println("Shop GetLastSyncTime err:", string(bytesResult), err)
 	}
 
 	if !shopDictResult.Success {
@@ -70,7 +70,7 @@ func (this *Shop) Dict(
 	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "shop/dict", &query, &shopDictResult)
 
 	if err != nil {
-		fmt.Println("Shop GetOrderLastSyncTime err:", string(bytesResult), err)
+		fmt.Println("Shop GetLastSyncTime err:", string(bytesResult), err)
 	}
 
 	if !shopDictResult.Success {

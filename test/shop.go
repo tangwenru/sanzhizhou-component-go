@@ -7,20 +7,20 @@ import (
 )
 
 func main() {
-	//GetOrderLastSyncTime()
+	//GetLastSyncTime()
 	//ShopList()
 	ShopDetail()
 }
 
-func GetOrderLastSyncTime() {
+func GetLastSyncTime() {
 	shop := sanzhizhouComponent.Shop{}
-	result, err := shop.GetOrderLastSyncTime(
+	result, err := shop.GetLastSyncTime(
 		"a1217689d4cb45390feb02d4125f44f8",
 		20,
 	)
 
-	fmt.Println("GetOrderLastSyncTime result:", result)
-	fmt.Println("GetOrderLastSyncTime err:", err)
+	fmt.Println("GetLastSyncTime result:", result)
+	fmt.Println("GetLastSyncTime err:", err)
 }
 
 func ShopList() {
