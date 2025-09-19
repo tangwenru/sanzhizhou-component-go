@@ -15,7 +15,7 @@ func init() {
 
 }
 
-func (this *Shop) GetLastSyncTime(userToken string, shopId int64) (int64, error) {
+func (this *Shop) GetLastSyncTime(userToken string, shopId int64) (*sanzhizhouComponentConfig.GetLastSyncTime, error) {
 	query := sanzhizhouComponentConfig.ShopGetLastSyncTimeQuery{
 		ShopId: shopId,
 	}
@@ -28,10 +28,10 @@ func (this *Shop) GetLastSyncTime(userToken string, shopId int64) (int64, error)
 	}
 
 	if !lastSyncTimeResult.Success {
-		return 0, errors.New(lastSyncTimeResult.Message)
+		return &sanzhizhouComponentConfig.GetLastSyncTime{}, errors.New(lastSyncTimeResult.Message)
 	}
 
-	return lastSyncTimeResult.Data.OrderLastSyncTime, nil
+	return &lastSyncTimeResult.Data, nil
 }
 
 func (this *Shop) List(

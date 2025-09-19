@@ -5,12 +5,14 @@ type ShopGetLastSyncTimeQuery struct {
 }
 
 type GetLastSyncTimeResult struct {
-	Success bool   `json:"success"`
-	Message string `json:"message,omitempty"`
-	Data    struct {
-		OrderLastSyncTime   int64 `json:"orderLastSyncTime"`
-		ProductLastSyncTime int64 `json:"productLastSyncTime"`
-	} `json:"data"`
+	Success bool            `json:"success"`
+	Message string          `json:"message,omitempty"`
+	Data    GetLastSyncTime `json:"data"`
+}
+
+type GetLastSyncTime struct {
+	OrderLastSyncTime   int64 `json:"orderLastSyncTime"`
+	ProductLastSyncTime int64 `json:"productLastSyncTime"`
 }
 
 type ShopBaseInfo struct {
