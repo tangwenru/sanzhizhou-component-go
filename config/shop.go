@@ -4,11 +4,12 @@ type ShopGetOrderLastSyncTimeQuery struct {
 	ShopId int64 `json:"shopId"`
 }
 
-type GetOrderLastSyncTimeResult struct {
+type GetLastSyncTimeResult struct {
 	Success bool   `json:"success"`
 	Message string `json:"message,omitempty"`
 	Data    struct {
-		OrderLastSyncTime int64 `json:"orderLastSyncTime"`
+		OrderLastSyncTime   int64 `json:"orderLastSyncTime"`
+		ProductLastSyncTime int64 `json:"productLastSyncTime"`
 	} `json:"data"`
 }
 
