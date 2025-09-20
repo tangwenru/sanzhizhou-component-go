@@ -36,10 +36,12 @@ func (this *Shop) GetLastSyncTime(userToken string, shopId int64) (*sanzhizhouCo
 
 func (this *Shop) List(
 	userToken string,
+	commercePlatformId int64,
 	showAll bool,
 ) (*sanzhizhouComponentConfig.ShopListData, error) {
 	query := sanzhizhouComponentConfig.ShopListResultQuery{
-		ShowAll: showAll,
+		ShowAll:            showAll,
+		CommercePlatformId: commercePlatformId,
 	}
 	shopDictResult := sanzhizhouComponentConfig.ShopListResult{}
 

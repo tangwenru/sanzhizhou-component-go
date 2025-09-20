@@ -27,6 +27,7 @@ func ShopList() {
 	shop := sanzhizhouComponent.Shop{}
 	result, err := shop.List(
 		"a1217689d4cb45390feb02d4125f44f8",
+		7,
 		true,
 	)
 

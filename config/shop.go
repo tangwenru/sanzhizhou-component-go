@@ -40,7 +40,8 @@ type ShopDictResult struct {
 }
 
 type ShopListResultQuery struct {
-	ShowAll bool `json:"showExtend"`
+	CommercePlatformId int64 `json:"commercePlatformId"`
+	ShowAll            bool  `json:"showExtend"`
 }
 type ShopListResult struct {
 	Success bool         `json:"success"`
