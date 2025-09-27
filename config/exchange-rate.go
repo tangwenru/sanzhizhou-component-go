@@ -1,19 +1,19 @@
 package sanzhizhouComponentConfig
 
 type ExchangeRateListResult struct {
-	Success bool                 `json:"success"`
-	Message string               `json:"message,omitempty"`
-	Data    ExchangeRateListData `json:"data"`
+	Success bool               `json:"success"`
+	Message string             `json:"message,omitempty"`
+	Data    []ExchangeRateList `json:"data"`
 }
 
-type ExchangeRateListData struct {
-	List       []ExchangeRateList `json:"list"`
-	Pagination struct {
-		Current  int   `json:"current"`
-		PageSize int   `json:"pageSize"`
-		Amount   int64 `json:"amount"`
-	} `json:"pagination"`
-}
+//type ExchangeRateListData struct {
+//	List       []ExchangeRateList `json:"list"`
+//	Pagination struct {
+//		Current  int   `json:"current"`
+//		PageSize int   `json:"pageSize"`
+//		Amount   int64 `json:"amount"`
+//	} `json:"pagination"`
+//}
 
 type ExchangeRateList struct {
 	Id       int64   `json:"id"`

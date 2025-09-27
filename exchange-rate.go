@@ -18,7 +18,7 @@ func init() {
 func (this *ExchangeRate) List(
 	userToken string,
 	query *sanzhizhouComponentConfig.ExchangeRateListQuery,
-) (*sanzhizhouComponentConfig.ExchangeRateListData, error) {
+) (*[]sanzhizhouComponentConfig.ExchangeRateList, error) {
 	exchangeRateDictResult := sanzhizhouComponentConfig.ExchangeRateListResult{}
 
 	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "exchangeRate/list", &query, &exchangeRateDictResult)
@@ -28,7 +28,7 @@ func (this *ExchangeRate) List(
 	}
 
 	if !exchangeRateDictResult.Success {
-		return &sanzhizhouComponentConfig.ExchangeRateListData{}, errors.New(exchangeRateDictResult.Message)
+		return &[]sanzhizhouComponentConfig.ExchangeRateList{}, errors.New(exchangeRateDictResult.Message)
 	}
 
 	return &exchangeRateDictResult.Data, nil
