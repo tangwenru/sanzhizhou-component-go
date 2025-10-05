@@ -104,6 +104,7 @@ type ShopDetail struct {
 	Currency          string            `json:"currency"`
 	OrderLastSyncTime int64             `json:"orderLastSyncTime"`
 	ApiInfo           map[string]string `json:"apiInfo"`
+	PublishSetting    string            `json:"publishSetting"`
 }
 type ShopDetailQuery struct {
 	Id int64 `json:"id"`
