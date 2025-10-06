@@ -15,7 +15,7 @@ func main() {
 func GetLastSyncTime() {
 	shop := sanzhizhouComponent.Shop{}
 	result, err := shop.GetLastSyncTime(
-		"a1217689d4cb45390feb02d4125f44f8",
+		"a12176 44f8",
 		20,
 	)
 
@@ -26,7 +26,7 @@ func GetLastSyncTime() {
 func ShopList() {
 	shop := sanzhizhouComponent.Shop{}
 	result, err := shop.List(
-		"a1217689d4cb45390feb02d4125f44f8",
+		"a1217689d4cb 4f8",
 		7,
 		true,
 	)
@@ -38,7 +38,7 @@ func ShopList() {
 func ShopDict() {
 	shop := sanzhizhouComponent.Shop{}
 	result, err := shop.Dict(
-		"a1217689d4cb45390feb02d4125f44f8",
+		"a1217689d4 f44f8",
 		&[]int64{5, 6, 7, 8, 9, 19, 20},
 		true,
 	)
@@ -50,7 +50,7 @@ func ShopDict() {
 func ShopDetail() {
 	shop := sanzhizhouComponent.Shop{}
 	result, err := shop.Detail(
-		"a1217689d4cb45390feb02d4125f44f8",
+		"a1217689d4c f44f8",
 		20,
 	)
 
