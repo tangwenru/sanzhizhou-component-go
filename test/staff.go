@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	sanzhizhouComponent "github.com/tangwenru/sanzhizhou-component-go"
+	mainConfig "github.com/tangwenru/sanzhizhou-component-go/test/config"
 )
 
 func main() {
@@ -15,7 +16,7 @@ func main() {
 func StaffInfo() {
 	staff := sanzhizhouComponent.Staff{}
 	result, err := staff.Info(
-		"e8c80437ee5fc97a",
+		mainConfig.StaffToken,
 	)
 
 	fmt.Println(fmt.Sprintf("staffDetail result: %+v", result))

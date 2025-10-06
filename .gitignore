@@ -33,3 +33,5 @@ go.work.sum
 
 /sanzhizhou-component-go
 /sanzhizhou-component-go.*
+
+/test/config/*
