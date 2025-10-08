@@ -4,12 +4,14 @@ import (
 	"fmt"
 
 	sanzhizhouComponent "github.com/tangwenru/sanzhizhou-component-go"
+	mainConfig "github.com/tangwenru/sanzhizhou-component-go/test/config"
 )
 
 func main() {
 	//GetLastSyncTime()
 	//ShopList()
-	ShopDetail()
+	//ShopDetail()
+	ShopDict()
 }
 
 func GetLastSyncTime() {
@@ -37,9 +39,11 @@ func ShopList() {
 
 func ShopDict() {
 	shop := sanzhizhouComponent.Shop{}
+	//去重
+
 	result, err := shop.Dict(
-		"a1217689d4 f44f8",
-		&[]int64{5, 6, 7, 8, 9, 19, 20},
+		mainConfig.UserToken,
+		&[]int64{5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 8, 9, 19, 20},
 		true,
 	)
 

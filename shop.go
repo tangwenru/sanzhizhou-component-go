@@ -63,8 +63,12 @@ func (this *Shop) Dict(
 	shopIdList *[]int64,
 	showExtend bool,
 ) (*map[int64]sanzhizhouComponentConfig.ShopBaseInfo, error) {
+
+	//去重
+	newShopIdList := sanzhizhouComponentLib.RemoveDuplicatesIn64(shopIdList)
+
 	query := sanzhizhouComponentConfig.ShopDictQuery{
-		ShopIdList: *shopIdList,
+		ShopIdList: *newShopIdList,
 		ShowExtend: showExtend,
 	}
 	shopDictResult := sanzhizhouComponentConfig.ShopDictResult{}

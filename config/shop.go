@@ -16,14 +16,16 @@ type GetLastSyncTime struct {
 }
 
 type ShopBaseInfo struct {
-	Id             int64  `json:"id"`
-	Name           string `json:"name"`
-	NameRemark     string `json:"nameRemark"`
-	GroupName      string `json:"groupName"`
-	Currency       string `json:"currency"`
-	PublishSetting string `json:"publishSetting"` // 可能为空，依赖接口参数
-	ApiInfo        string `json:"apiInfo"`        // 可能为空，依赖接口参数
+	Id             int64          `json:"id"`
+	Name           string         `json:"name"`
+	NameRemark     string         `json:"nameRemark"`
+	GroupName      string         `json:"groupName"`
+	Currency       string         `json:"currency"`
+	PublishSetting string         `json:"publishSetting"` // 可能为空，依赖接口参数
+	ApiInfo        ShopApiKeyInfo `json:"apiInfo"`        // 可能为空，依赖接口参数
 }
+
+type ShopApiKeyInfo map[string]string
 
 type ShopDictQuery struct {
 	ShopIdList []int64 `json:"shopIdList"`
