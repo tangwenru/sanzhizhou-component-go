@@ -29,7 +29,8 @@ type UserDetail struct {
 	AppSid      string `json:"appSid"`
 	ClientSid   string `json:"clientSid"`
 	DealerId    int64  `json:"dealerId"`
-	Created     int64  `json:"created"`
+	//Created     int64   `json:"created"`
+	Balance float32 `json:"balance"`
 }
 
 func (this *User) Detail(userToken string) (error, *UserDetail) {
