@@ -62,6 +62,7 @@ type ShopListData struct {
 
 type ShopList struct {
 	Id                 int64  `json:"id"`
+	UserId             int64  `json:"userId"`
 	PlatformShopId     string `json:"platformShopId"`
 	ShopName           string `json:"shopName"`
 	ShopAvatarUrl      string `json:"shopAvatarUrl"`
