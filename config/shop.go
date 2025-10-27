@@ -1,5 +1,7 @@
 package sanzhizhouComponentConfig
 
+import "time"
+
 type ShopGetLastSyncTimeQuery struct {
 	ShopId int64 `json:"shopId"`
 }
@@ -11,8 +13,8 @@ type GetLastSyncTimeResult struct {
 }
 
 type GetLastSyncTime struct {
-	OrderLastSyncTime   int64 `json:"orderLastSyncTime"`
-	ProductLastSyncTime int64 `json:"productLastSyncTime"`
+	OrderLastSyncTime   time.Time `json:"orderLastSyncTime"`
+	ProductLastSyncTime time.Time `json:"productLastSyncTime"`
 }
 
 type ShopBaseInfo struct {
