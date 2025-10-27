@@ -107,3 +107,25 @@ func (this *Shop) Detail(
 
 	return &shopDetailResult.Data, nil
 }
+
+func (this *Shop) ListByDomesticWarehouseId(
+	userToken string,
+	domesticWarehouseId int64,
+) (*[]int64, error) {
+	query := sanzhizhouComponentConfig.ShopByDomesticWarehouseIdQuery{
+		DomesticWarehouseId: domesticWarehouseId,
+	}
+	shopDetailResult := sanzhizhouComponentConfig.ListByDomesticWarehouseIdResult{}
+
+	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "shop/listByDomesticWarehouseId", &query, &shopDetailResult)
+
+	if err != nil {
+		fmt.Println("Shop Detail err:", string(bytesResult), err)
+	}
+
+	if !shopDetailResult.Success {
+		return &[]int64{}, errors.New(shopDetailResult.Message)
+	}
+
+	return &shopDetailResult.Data, nil
+}

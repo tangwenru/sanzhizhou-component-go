@@ -118,3 +118,14 @@ type ShopDetailResult struct {
 	Message string     `json:"message,omitempty"`
 	Data    ShopDetail `json:"data"`
 }
+
+// //
+type ShopByDomesticWarehouseIdQuery struct {
+	DomesticWarehouseId int64 `json:"domesticWarehouseId"`
+}
+
+type ListByDomesticWarehouseIdResult struct {
+	Success bool    `json:"success"`
+	Message string  `json:"message,omitempty"`
+	Data    []int64 `json:"data"`
+}
