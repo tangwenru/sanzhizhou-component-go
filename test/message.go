@@ -18,9 +18,10 @@ func MessageCreate() {
 		mainConfig.UserToken,
 		&sanzhizhouComponentConfig.MessageCreateQuery{
 			CommercePlatformId: 7,
-			Title:              "标题1",
+			Title:              "标题 2",
 			Introduction:       "Introduction 1",
 			Content:            "Content 1",
+			TypeStatus:         "error",
 		},
 	)
 

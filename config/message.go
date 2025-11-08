@@ -5,6 +5,7 @@ type MessageCreateQuery struct {
 	Title              string `json:"title"`
 	Introduction       string `json:"introduction"`
 	Content            string `json:"content"`
+	TypeStatus         string `json:"typeStatus"`
 }
 
 type MessageCreateResult struct {
