@@ -25,6 +25,8 @@ type ShopBaseInfo struct {
 	Currency       string         `json:"currency"`
 	PublishSetting string         `json:"publishSetting"` // 可能为空，依赖接口参数
 	ApiInfo        ShopApiKeyInfo `json:"apiInfo"`        // 可能为空，依赖接口参数
+	IsBan          bool           `json:"isBan"`
+	Enabled        bool           `json:"enabled"`
 }
 
 type ShopApiKeyInfo map[string]string
