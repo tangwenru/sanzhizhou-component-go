@@ -131,3 +131,14 @@ type ListByDomesticWarehouseIdResult struct {
 	Message string  `json:"message,omitempty"`
 	Data    []int64 `json:"data"`
 }
+
+type ShopSaveStatusQuery struct {
+	ShopId  int64  `json:"shopId"`
+	IsBan   string `json:"isBan"`   // '' | 1 | 0
+	Enabled string `json:"enabled"` // '' | 1 | 0
+}
+type ShopSaveStatusQueryResult struct {
+	Success bool   `json:"success"`
+	Message string `json:"message,omitempty"`
+	//Data    []int64 `json:"data"`
+}

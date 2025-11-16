@@ -129,3 +129,22 @@ func (this *Shop) ListByDomesticWarehouseId(
 
 	return &shopDetailResult.Data, nil
 }
+
+func (this *Shop) SaveStatus(
+	userToken string,
+	query *sanzhizhouComponentConfig.ShopSaveStatusQuery,
+) error {
+	saveResult := sanzhizhouComponentConfig.ShopSaveStatusQueryResult{}
+
+	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "shop/saveStatus", &query, &saveResult)
+
+	if err != nil {
+		fmt.Println("Shop saveStatus err:", string(bytesResult), err)
+	}
+
+	if !saveResult.Success {
+		return errors.New(saveResult.Message)
+	}
+
+	return nil
+}

@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	sanzhizhouComponent "github.com/tangwenru/sanzhizhou-component-go"
+	sanzhizhouComponentConfig "github.com/tangwenru/sanzhizhou-component-go/config"
 	mainConfig "github.com/tangwenru/sanzhizhou-component-go/test/config"
 )
 
@@ -11,7 +12,8 @@ func main() {
 	//GetLastSyncTime()
 	//ShopList()
 	//ShopDetail()
-	ShopDict()
+	//ShopDict()
+	ShopSaveStatus()
 }
 
 func GetLastSyncTime() {
@@ -60,4 +62,17 @@ func ShopDetail() {
 
 	fmt.Println(fmt.Sprintf("ShopDetail result: %+v", result))
 	fmt.Println("ShopDetail err:", err)
+}
+
+func ShopSaveStatus() {
+	shop := sanzhizhouComponent.Shop{}
+	result := shop.SaveStatus(
+		mainConfig.UserToken,
+		&sanzhizhouComponentConfig.ShopSaveStatusQuery{
+			ShopId: 24,
+			IsBan:  "1",
+		},
+	)
+
+	fmt.Println(fmt.Sprintf("ShopSaveStatus result: %+v", result))
 }
