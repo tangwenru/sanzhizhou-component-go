@@ -33,6 +33,22 @@ type UserDetail struct {
 	Balance float64 `json:"balance"`
 }
 
+type UserDict struct {
+	Id          int64   `json:"id"`
+	AccountName string  `json:"accountName"`
+	Nickname    string  `json:"nickname"`
+	AvatarUrl   string  `json:"avatarUrl"`
+	DealerId    int64   `json:"dealerId"`
+	Balance     float64 `json:"balance"`
+}
+
+type UserDictResult struct {
+	Success bool     `json:"success"`
+	Message string   `json:"message"`
+	Code    string   `json:"code"`
+	Data    UserDict `json:"data"`
+}
+
 func (this *User) Detail(userToken string) (error, *UserDetail) {
 	userDetailResult := UserDetailResult{}
 	query := map[string]string{}
@@ -68,6 +84,27 @@ func (this *User) DetailByOneClient(userToken string, productType, clientUniqueK
 
 	if !userDetailResult.Success {
 		return errors.New(userDetailResult.Message), &userDetail
+	}
+
+	return err, &userDetailResult.Data
+}
+
+// 一个用户只能登录一个客户端
+func (this *User) Dict(staffToken string, userIdList *[]int64) (error, *UserDict) {
+	userDetailResult := UserDictResult{}
+	query := map[string]interface{}{
+		"userIdList": userIdList,
+	}
+	_, err := sanzhizhouComponentLib.MainSystem(staffToken, "user/dict", &query, &userDetailResult)
+
+	userDict := UserDict{}
+	if err != nil {
+		fmt.Println("ssz user info err:", err)
+		return err, &userDict
+	}
+
+	if !userDetailResult.Success {
+		return errors.New(userDetailResult.Message), &userDict
 	}
 
 	return err, &userDetailResult.Data
