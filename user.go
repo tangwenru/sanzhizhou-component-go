@@ -33,7 +33,9 @@ type UserDetail struct {
 	Balance float64 `json:"balance"`
 }
 
-type UserDict struct {
+type UserDict map[int64]UserDictItem
+
+type UserDictItem struct {
 	Id          int64   `json:"id"`
 	AccountName string  `json:"accountName"`
 	Nickname    string  `json:"nickname"`
