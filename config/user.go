@@ -7,7 +7,6 @@ type UserDictItem struct {
 	AccountName string  `json:"accountName"`
 	Nickname    string  `json:"nickname"`
 	AvatarUrl   string  `json:"avatarUrl"`
-	DealerId    int64   `json:"dealerId"`
 	Balance     float64 `json:"balance"`
 }
 

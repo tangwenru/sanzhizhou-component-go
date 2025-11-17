@@ -16,7 +16,7 @@ func UserDict() {
 	err, result := user.Dict(
 		mainConfig.StaffToken,
 		&[]int64{
-			1, 2, 3, 4, 5, 20, 21,
+			30, 40, 41, 42, 43, 44, 45,
 		},
 	)
 
