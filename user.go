@@ -3,6 +3,8 @@ package sanzhizhouComponent
 import (
 	"errors"
 	"fmt"
+
+	sanzhizhouComponentConfig "github.com/tangwenru/sanzhizhou-component-go/config"
 	//sanzhizhouComponentLib "sanzhizhouComponent/lib"
 	sanzhizhouComponentLib "github.com/tangwenru/sanzhizhou-component-go/lib"
 )
@@ -31,24 +33,6 @@ type UserDetail struct {
 	DealerId    int64  `json:"dealerId"`
 	//Created     int64   `json:"created"`
 	Balance float64 `json:"balance"`
-}
-
-type UserDict map[int64]UserDictItem
-
-type UserDictItem struct {
-	Id          int64   `json:"id"`
-	AccountName string  `json:"accountName"`
-	Nickname    string  `json:"nickname"`
-	AvatarUrl   string  `json:"avatarUrl"`
-	DealerId    int64   `json:"dealerId"`
-	Balance     float64 `json:"balance"`
-}
-
-type UserDictResult struct {
-	Success bool     `json:"success"`
-	Message string   `json:"message"`
-	Code    string   `json:"code"`
-	Data    UserDict `json:"data"`
 }
 
 func (this *User) Detail(userToken string) (error, *UserDetail) {
@@ -92,14 +76,14 @@ func (this *User) DetailByOneClient(userToken string, productType, clientUniqueK
 }
 
 // 一个用户只能登录一个客户端
-func (this *User) Dict(staffToken string, userIdList *[]int64) (error, *UserDict) {
-	userDetailResult := UserDictResult{}
+func (this *User) Dict(staffToken string, userIdList *[]int64) (error, *sanzhizhouComponentConfig.UserDict) {
+	userDetailResult := sanzhizhouComponentConfig.UserDictResult{}
 	query := map[string]interface{}{
 		"userIdList": userIdList,
 	}
 	_, err := sanzhizhouComponentLib.MainSystem(staffToken, "user/dict", &query, &userDetailResult)
 
-	userDict := UserDict{}
+	userDict := sanzhizhouComponentConfig.UserDict{}
 	if err != nil {
 		fmt.Println("ssz user info err:", err)
 		return err, &userDict
