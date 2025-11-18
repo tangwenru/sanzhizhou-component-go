@@ -16,3 +16,12 @@ type UserDictResult struct {
 	Code    string   `json:"code"`
 	Data    UserDict `json:"data"`
 }
+
+type GetDomesticWarehouseIdResult struct {
+	Success bool   `json:"success"`
+	Message string `json:"message"`
+	Code    string `json:"code"`
+	Data    struct {
+		DomesticWarehouseId int64 `json:"domesticWarehouseId"`
+	} `json:"data"`
+}

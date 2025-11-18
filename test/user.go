@@ -8,7 +8,8 @@ import (
 )
 
 func main() {
-	UserDict()
+	//UserDict()
+	UserGetDomesticWarehouseId()
 }
 
 func UserDict() {
@@ -22,4 +23,14 @@ func UserDict() {
 
 	fmt.Println(fmt.Sprintf("UserSaveStatus result: %+v", result))
 	fmt.Println(fmt.Sprintf("UserSaveStatus err: %+v", err))
+}
+
+func UserGetDomesticWarehouseId() {
+	user := sanzhizhouComponent.User{}
+	result, err := user.GetDomesticWarehouseId(
+		mainConfig.UserToken,
+	)
+
+	fmt.Println(fmt.Sprintf("UserGet DomesticWarehouseId result: %+v", result))
+	fmt.Println(fmt.Sprintf("UserGet DomesticWarehouseId err: %+v", err))
 }

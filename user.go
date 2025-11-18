@@ -95,3 +95,21 @@ func (this *User) Dict(staffToken string, userIdList *[]int64) (error, *sanzhizh
 
 	return err, &userDetailResult.Data
 }
+
+func (this *User) GetDomesticWarehouseId(userToken string) (int64, error) {
+	result := sanzhizhouComponentConfig.GetDomesticWarehouseIdResult{}
+
+	query := map[string]string{}
+	_, err := sanzhizhouComponentLib.MainSystem(userToken, "user/getDomesticWarehouseId", &query, &result)
+
+	if err != nil {
+		fmt.Println("ssz user info err:", err)
+		return 1, err
+	}
+
+	if !result.Success {
+		return 1, errors.New(result.Message)
+	}
+
+	return result.Data.DomesticWarehouseId, nil
+}
