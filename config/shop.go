@@ -144,3 +144,12 @@ type ShopSaveStatusQueryResult struct {
 	Message string `json:"message,omitempty"`
 	//Data    []int64 `json:"data"`
 }
+
+type ShopSaveLastSyncTimeQuery struct {
+	ShopId int64 `json:"shopId"`
+}
+
+type ShopSaveLastSyncTimeResult struct {
+	Success bool   `json:"success"`
+	Message string `json:"message,omitempty"`
+}

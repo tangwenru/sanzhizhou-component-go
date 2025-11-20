@@ -148,3 +148,22 @@ func (this *Shop) SaveStatus(
 
 	return nil
 }
+
+func (this *Shop) SaveLastSyncTime(
+	userToken string,
+	query *sanzhizhouComponentConfig.ShopSaveLastSyncTimeQuery,
+) error {
+	saveResult := sanzhizhouComponentConfig.ShopSaveLastSyncTimeResult{}
+
+	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "shop/SaveLastSyncTime", &query, &saveResult)
+
+	if err != nil {
+		fmt.Println("Shop SaveLastSyncTime err:", string(bytesResult), err)
+	}
+
+	if !saveResult.Success {
+		return errors.New(saveResult.Message)
+	}
+
+	return nil
+}
