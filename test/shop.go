@@ -13,8 +13,8 @@ func main() {
 	//ShopList()
 	//ShopDetail()
 	//ShopDict()
-	//ShopSaveStatus()
-	SaveLastSyncTime()
+	ShopSaveStatus()
+	//SaveLastSyncTime()
 }
 
 func GetLastSyncTime() {
@@ -70,12 +70,14 @@ func ShopSaveStatus() {
 	result := shop.SaveStatus(
 		mainConfig.UserToken,
 		&sanzhizhouComponentConfig.ShopSaveStatusQuery{
-			ShopId: 24,
-			IsBan:  "1",
+			ShopId:        19,
+			IsBan:         "1",
+			Enabled:       "0",
+			StatusMessage: "营业执照被冻结",
 		},
 	)
 
-	fmt.Println(fmt.Sprintf("ShopSaveStatus result: %+v", result))
+	fmt.Println(fmt.Sprintf("ShopSave Status result: %+v", result))
 }
 
 func SaveLastSyncTime() {

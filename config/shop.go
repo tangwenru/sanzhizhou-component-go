@@ -135,9 +135,10 @@ type ListByDomesticWarehouseIdResult struct {
 }
 
 type ShopSaveStatusQuery struct {
-	ShopId  int64  `json:"shopId"`
-	IsBan   string `json:"isBan"`   // '' | 1 | 0
-	Enabled string `json:"enabled"` // '' | 1 | 0
+	ShopId        int64  `json:"shopId"`
+	IsBan         string `json:"isBan"`   // '' | 1 | 0
+	Enabled       string `json:"enabled"` // '' | 1 | 0
+	StatusMessage string `json:"statusMessage"`
 }
 type ShopSaveStatusQueryResult struct {
 	Success bool   `json:"success"`
