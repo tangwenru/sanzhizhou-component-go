@@ -74,6 +74,7 @@ type ShopList struct {
 	ShopNameRemark     string `json:"shopNameRemark"`
 	IsLoginValid       bool   `json:"isLoginValid"`
 	ShopOrganizationId int64  `json:"shopOrganizationId"`
+	Enabled            bool   `json:"enabled"`
 	IsBan              bool   `json:"isBan"`
 	IsPublishSelect    bool   `json:"isPublishSelect"`
 	IsCloud            bool   `json:"isCloud"`
@@ -99,6 +100,7 @@ type ShopDetail struct {
 	ShopNameRemark     string `json:"shopNameRemark"`
 	IsLoginValid       bool   `json:"isLoginValid"`
 	ShopOrganizationId int64  `json:"shopOrganizationId"`
+	Enabled            bool   `json:"enabled"`
 	IsBan              bool   `json:"isBan"`
 	IsPublishSelect    bool   `json:"isPublishSelect"`
 	IsCloud            bool   `json:"isCloud"`
