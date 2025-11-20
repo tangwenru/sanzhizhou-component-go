@@ -27,6 +27,7 @@ type ShopBaseInfo struct {
 	ApiInfo        ShopApiKeyInfo `json:"apiInfo"`        // 可能为空，依赖接口参数
 	IsBan          bool           `json:"isBan"`
 	Enabled        bool           `json:"enabled"`
+	StatusMessage  string         `json:"statusMessage"`
 }
 
 type ShopApiKeyInfo map[string]string
@@ -78,6 +79,7 @@ type ShopList struct {
 	IsCloud            bool   `json:"isCloud"`
 	Created            int64  `json:"created"`
 	Updated            int64  `json:"updated"`
+	StatusMessage      string `json:"statusMessage"`
 
 	ChromeProfileName string `json:"chromeProfileName"`
 
@@ -102,6 +104,7 @@ type ShopDetail struct {
 	IsCloud            bool   `json:"isCloud"`
 	Created            int64  `json:"created"`
 	Updated            int64  `json:"updated"`
+	StatusMessage      string `json:"statusMessage"`
 
 	ChromeProfileName string `json:"chromeProfileName"`
 
