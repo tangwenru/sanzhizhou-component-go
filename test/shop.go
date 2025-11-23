@@ -13,8 +13,9 @@ func main() {
 	//ShopList()
 	//ShopDetail()
 	//ShopDict()
-	ShopSaveStatus()
+	//ShopSaveStatus()
 	//SaveLastSyncTime()
+	GetPublishShopIdList()
 }
 
 func GetLastSyncTime() {
@@ -90,4 +91,15 @@ func SaveLastSyncTime() {
 	)
 
 	fmt.Println(fmt.Sprintf("SaveLastSyncTime result: %+v", result))
+}
+
+func GetPublishShopIdList() {
+	shop := sanzhizhouComponent.Shop{}
+	result, err := shop.GetPublishShopIdList(
+		mainConfig.UserToken,
+		7,
+	)
+
+	fmt.Println(fmt.Sprintf("SaveLastSyncTime result: %+v", result))
+	fmt.Println("err:", err)
 }

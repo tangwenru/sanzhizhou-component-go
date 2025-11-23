@@ -167,3 +167,25 @@ func (this *Shop) SaveLastSyncTime(
 
 	return nil
 }
+
+func (this *Shop) GetPublishShopIdList(
+	userToken string,
+	commercePlatformId int64,
+) (*[]int64, error) {
+	saveResult := sanzhizhouComponentConfig.ShopGetPublishShopIdListResult{}
+
+	query := sanzhizhouComponentConfig.ShopGetPublishShopIdListQuery{
+		CommercePlatformId: commercePlatformId,
+	}
+	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "shop/getPublishShopIdList", &query, &saveResult)
+
+	if err != nil {
+		fmt.Println("Shop GetPublishShopIdList err:", string(bytesResult), err)
+	}
+
+	if !saveResult.Success {
+		return &[]int64{}, errors.New(saveResult.Message)
+	}
+
+	return &saveResult.Data, nil
+}

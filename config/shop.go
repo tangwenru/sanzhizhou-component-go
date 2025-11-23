@@ -159,3 +159,12 @@ type ShopSaveLastSyncTimeResult struct {
 	Success bool   `json:"success"`
 	Message string `json:"message,omitempty"`
 }
+
+type ShopGetPublishShopIdListQuery struct {
+	CommercePlatformId int64
+}
+type ShopGetPublishShopIdListResult struct {
+	Success bool    `json:"success"`
+	Message string  `json:"message,omitempty"`
+	Data    []int64 `json:"data"`
+}
