@@ -88,7 +88,7 @@ type ShopList struct {
 	GroupInfo            ShopGroupBaseInfo        `json:"groupInfo"`
 
 	Currency          string            `json:"currency"`
-	OrderLastSyncTime int64             `json:"orderLastSyncTime"`
+	OrderLastSyncTime time.Time         `json:"orderLastSyncTime"`
 	ApiInfo           map[string]string `json:"apiInfo"`
 }
 
@@ -114,7 +114,7 @@ type ShopDetail struct {
 	GroupInfo            ShopGroupBaseInfo        `json:"groupInfo"`
 
 	Currency          string            `json:"currency"`
-	OrderLastSyncTime int64             `json:"orderLastSyncTime"`
+	OrderLastSyncTime time.Time         `json:"orderLastSyncTime"`
 	ApiInfo           map[string]string `json:"apiInfo"`
 	PublishSetting    string            `json:"publishSetting"`
 }
