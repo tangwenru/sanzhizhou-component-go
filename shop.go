@@ -89,7 +89,7 @@ func (this *Shop) Dict(
 func (this *Shop) Detail(
 	userToken string,
 	shopId int64,
-) (*sanzhizhouComponentConfig.ShopDetail, error) {
+) (*sanzhizhouComponentConfig.ShopDetail, *sanzhizhouComponentConfig.ShopDetailResult) {
 	query := sanzhizhouComponentConfig.ShopDetailQuery{
 		Id: shopId,
 	}
@@ -102,10 +102,10 @@ func (this *Shop) Detail(
 	}
 
 	if !shopDetailResult.Success {
-		return &sanzhizhouComponentConfig.ShopDetail{}, errors.New(shopDetailResult.Message)
+		return &sanzhizhouComponentConfig.ShopDetail{}, &shopDetailResult
 	}
 
-	return &shopDetailResult.Data, nil
+	return &shopDetailResult.Data, &shopDetailResult
 }
 
 func (this *Shop) ListByDomesticWarehouseId(
