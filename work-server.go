@@ -94,6 +94,7 @@ func (this *WorkServer) RandDetail(userToken string, workType string) (*WorkServ
 
 	if err != nil {
 		fmt.Println("Work Server RandDetail err:", string(bytesResult), err)
+		return nil, err
 	}
 
 	if !vipListResult.Success {
@@ -117,6 +118,7 @@ func (this *WorkServer) Detail(userToken string, id int64) (*WorkServerDetail, e
 
 	if err != nil {
 		fmt.Println("Work Server Detail err:", string(bytesResult), err)
+		return nil, err
 	}
 
 	if !vipListResult.Success {
@@ -134,6 +136,7 @@ func (this *WorkServer) List(userToken string) (*[]WorkServerDetail, error) {
 
 	if err != nil {
 		fmt.Println("work Server List err:", string(bytesResult), err)
+		return nil, err
 	}
 
 	if !vipListResult.Success {

@@ -25,6 +25,7 @@ func (this *Shop) GetLastSyncTime(userToken string, shopId int64) (*sanzhizhouCo
 
 	if err != nil {
 		fmt.Println("Shop GetLastSyncTime err:", string(bytesResult), err)
+		return nil, err
 	}
 
 	if !lastSyncTimeResult.Success {
@@ -49,6 +50,7 @@ func (this *Shop) List(
 
 	if err != nil {
 		fmt.Println("Shop GetLastSyncTime err:", string(bytesResult), err)
+		return nil, err
 	}
 
 	if !shopDictResult.Success {
@@ -77,6 +79,8 @@ func (this *Shop) Dict(
 
 	if err != nil {
 		fmt.Println("Shop GetLastSyncTime err:", string(bytesResult), err)
+		shopDictResult.Message = err.Error()
+		return &shopDictResult.Data, err
 	}
 
 	if !shopDictResult.Success {
@@ -99,6 +103,8 @@ func (this *Shop) Detail(
 
 	if err != nil {
 		fmt.Println("Shop Detail err:", string(bytesResult), err)
+		shopDetailResult.Message = err.Error()
+		return &shopDetailResult.Data, &shopDetailResult
 	}
 
 	if !shopDetailResult.Success {
@@ -121,6 +127,7 @@ func (this *Shop) ListByDomesticWarehouseId(
 
 	if err != nil {
 		fmt.Println("Shop Detail err:", string(bytesResult), err)
+		return nil, err
 	}
 
 	if !shopDetailResult.Success {
@@ -140,6 +147,7 @@ func (this *Shop) SaveStatus(
 
 	if err != nil {
 		fmt.Println("Shop saveStatus err:", string(bytesResult), err)
+		return err
 	}
 
 	if !saveResult.Success {
@@ -159,6 +167,7 @@ func (this *Shop) SaveLastSyncTime(
 
 	if err != nil {
 		fmt.Println("Shop SaveLastSyncTime err:", string(bytesResult), err)
+		return err
 	}
 
 	if !saveResult.Success {
@@ -181,6 +190,7 @@ func (this *Shop) GetPublishShopIdList(
 
 	if err != nil {
 		fmt.Println("Shop GetPublishShopIdList err:", string(bytesResult), err)
+		return nil, err
 	}
 
 	if !saveResult.Success {
