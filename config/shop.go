@@ -10,6 +10,7 @@ type GetLastSyncTimeResult struct {
 	Success bool            `json:"success"`
 	Message string          `json:"message,omitempty"`
 	Data    GetLastSyncTime `json:"data"`
+	Code    string          `json:"code"`
 }
 
 type GetLastSyncTime struct {
@@ -44,6 +45,7 @@ type ShopDictResult struct {
 	Success bool                   `json:"success"`
 	Message string                 `json:"message,omitempty"`
 	Data    map[int64]ShopBaseInfo `json:"data"`
+	Code    string                 `json:"code"`
 }
 
 type ShopListResultQuery struct {
@@ -54,6 +56,7 @@ type ShopListResult struct {
 	Success bool         `json:"success"`
 	Message string       `json:"message,omitempty"`
 	Data    ShopListData `json:"data"`
+	Code    string       `json:"code"`
 }
 
 type ShopListData struct {
@@ -126,6 +129,7 @@ type ShopDetailResult struct {
 	Success bool       `json:"success"`
 	Message string     `json:"message,omitempty"`
 	Data    ShopDetail `json:"data"`
+	Code    string     `json:"code"`
 }
 
 // //
@@ -137,6 +141,7 @@ type ListByDomesticWarehouseIdResult struct {
 	Success bool    `json:"success"`
 	Message string  `json:"message,omitempty"`
 	Data    []int64 `json:"data"`
+	Code    string  `json:"code"`
 }
 
 type ShopSaveStatusQuery struct {
@@ -149,6 +154,7 @@ type ShopSaveStatusQueryResult struct {
 	Success bool   `json:"success"`
 	Message string `json:"message,omitempty"`
 	//Data    []int64 `json:"data"`
+	Code string `json:"code"`
 }
 
 type ShopSaveLastSyncTimeQuery struct {
@@ -158,6 +164,7 @@ type ShopSaveLastSyncTimeQuery struct {
 type ShopSaveLastSyncTimeResult struct {
 	Success bool   `json:"success"`
 	Message string `json:"message,omitempty"`
+	Code    string `json:"code"`
 }
 
 type ShopGetPublishShopIdListQuery struct {
@@ -167,4 +174,5 @@ type ShopGetPublishShopIdListResult struct {
 	Success bool    `json:"success"`
 	Message string  `json:"message,omitempty"`
 	Data    []int64 `json:"data"`
+	Code    string  `json:"code"`
 }
