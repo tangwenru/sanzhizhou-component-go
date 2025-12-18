@@ -33,3 +33,28 @@ func (this *Finance) Transfer(
 
 	return nil
 }
+
+func (this *Finance) DetailByTarget(
+	userToken,
+	financeType string,
+	targetId int64,
+) (*sanzhizhouComponentConfig.FinanceDetailByTarget, *sanzhizhouComponentConfig.FinanceDetailByTargetResult) {
+	result := sanzhizhouComponentConfig.FinanceDetailByTargetResult{}
+
+	query := sanzhizhouComponentConfig.FinanceDetailByTargetQuery{
+		FinanceType: financeType,
+		TargetId:    targetId,
+	}
+
+	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "finance/detail", &query, &result)
+
+	if err != nil {
+		fmt.Println("Finance-Detail-err:", string(bytesResult), err)
+	}
+
+	if !result.Success {
+		return nil, &result
+	}
+
+	return &result.Data, &result
+}

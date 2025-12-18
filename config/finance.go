@@ -16,3 +16,17 @@ type FinanceTransferResult struct {
 	Message string      `json:"message,omitempty"`
 	Data    interface{} `json:"data"`
 }
+
+type FinanceDetailByTargetQuery struct {
+	FinanceType string `json:"financeType"`
+	TargetId    int64  `json:"targetId"`
+}
+type FinanceDetailByTargetResult struct {
+	Success bool                  `json:"success"`
+	Message string                `json:"message,omitempty"`
+	Code    string                `json:"code,omitempty"`
+	Data    FinanceDetailByTarget `json:"data"`
+}
+
+type FinanceDetailByTarget struct {
+}
