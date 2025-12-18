@@ -38,8 +38,8 @@ func (this *Finance) DetailByTarget(
 	userToken,
 	financeType string,
 	targetId int64,
-) (*sanzhizhouComponentConfig.FinanceDetailByTarget, *sanzhizhouComponentConfig.FinanceDetailByTargetResult) {
-	result := sanzhizhouComponentConfig.FinanceDetailByTargetResult{}
+) (*sanzhizhouComponentConfig.FinanceDetail, *sanzhizhouComponentConfig.FinanceDetailResult) {
+	result := sanzhizhouComponentConfig.FinanceDetailResult{}
 
 	query := sanzhizhouComponentConfig.FinanceDetailByTargetQuery{
 		FinanceType: financeType,
