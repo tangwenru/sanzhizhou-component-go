@@ -1,7 +1,6 @@
 package sanzhizhouComponent
 
 import (
-	"errors"
 	"fmt"
 
 	sanzhizhouComponentConfig "github.com/tangwenru/sanzhizhou-component-go/config"
@@ -18,7 +17,7 @@ func init() {
 func (this *Finance) Transfer(
 	staffToken string,
 	query *sanzhizhouComponentConfig.FinanceTransferQuery,
-) error {
+) sanzhizhouComponentConfig.FinanceTransferResult {
 	shopDictResult := sanzhizhouComponentConfig.FinanceTransferResult{}
 
 	bytesResult, err := sanzhizhouComponentLib.MainSystem(staffToken, "finance/transfer", &query, &shopDictResult)
@@ -27,11 +26,7 @@ func (this *Finance) Transfer(
 		fmt.Println("Finance Transfer err:", string(bytesResult), err)
 	}
 
-	if !shopDictResult.Success {
-		return errors.New(shopDictResult.Message)
-	}
-
-	return nil
+	return shopDictResult
 }
 
 func (this *Finance) DetailByTarget(

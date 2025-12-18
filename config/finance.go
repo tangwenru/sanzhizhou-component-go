@@ -14,6 +14,7 @@ type FinanceTransferQuery struct {
 type FinanceTransferResult struct {
 	Success bool        `json:"success"`
 	Message string      `json:"message,omitempty"`
+	Code    string      `json:"code"`
 	Data    interface{} `json:"data"`
 }
 
