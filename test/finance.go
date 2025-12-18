@@ -9,7 +9,8 @@ import (
 )
 
 func main() {
-	Transfer()
+	//Transfer()
+	DetailByTarget()
 }
 
 func Transfer() {
@@ -29,4 +30,15 @@ func Transfer() {
 	)
 
 	fmt.Println("finance err:", err)
+}
+
+func DetailByTarget() {
+	finance := sanzhizhouComponent.Finance{}
+	_, result := finance.DetailByTarget(
+		mainConfig.UserToken,
+		"domestic-warehouse-fee",
+		3083,
+	)
+
+	fmt.Println("finance DetailByTarget:", result)
 }

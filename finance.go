@@ -46,7 +46,7 @@ func (this *Finance) DetailByTarget(
 		TargetId:    targetId,
 	}
 
-	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "finance/detail", &query, &result)
+	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "finance/detailByTarget", &query, &result)
 
 	if err != nil {
 		fmt.Println("Finance-Detail-err:", string(bytesResult), err)
