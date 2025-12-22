@@ -11,8 +11,8 @@ import (
 func main() {
 	//GetLastSyncTime()
 	//ShopList()
-	ShopDetail()
-	//ShopDict()
+	//ShopDetail()
+	ShopDict()
 	//ShopSaveStatus()
 	//SaveLastSyncTime()
 	//GetPublishShopIdList()
@@ -47,7 +47,7 @@ func ShopDict() {
 
 	result, err := shop.Dict(
 		mainConfig.UserToken,
-		&[]int64{5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 8, 9, 19, 20},
+		&[]int64{35, 36},
 		true,
 	)
 
