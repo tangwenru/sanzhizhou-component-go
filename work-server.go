@@ -89,16 +89,17 @@ func (this *WorkServer) RandDetail(userToken string, workType string) (*WorkServ
 		WorkType: workType,
 	}
 	vipListResult := WorkServerRandDetailResult{}
+	empty := WorkServerRandDetail{}
 
 	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "workServer/randDetail", &query, &vipListResult)
 
 	if err != nil {
 		fmt.Println("Work Server RandDetail err:", string(bytesResult), err)
-		return nil, err
+		return &empty, err
 	}
 
 	if !vipListResult.Success {
-		return nil, errors.New(vipListResult.Message)
+		return &empty, errors.New(vipListResult.Message)
 	}
 
 	return &vipListResult.Data, nil
@@ -110,19 +111,21 @@ func (this *WorkServer) Detail(userToken string, id int64) (*WorkServerDetail, e
 	}
 	vipListResult := WorkServerDetailResult{}
 
+	empty := WorkServerDetail{}
+
 	if id <= 0 {
-		return &WorkServerDetail{}, nil
+		return &empty, nil
 	}
 
 	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "workServer/detail", &query, &vipListResult)
 
 	if err != nil {
 		fmt.Println("Work Server Detail err:", string(bytesResult), err)
-		return nil, err
+		return &empty, err
 	}
 
 	if !vipListResult.Success {
-		return &WorkServerDetail{}, errors.New(vipListResult.Message)
+		return &empty, errors.New(vipListResult.Message)
 	}
 
 	return &vipListResult.Data, nil
@@ -134,13 +137,14 @@ func (this *WorkServer) List(userToken string) (*[]WorkServerDetail, error) {
 
 	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "workServer/list", &query, &vipListResult)
 
+	empty := make([]WorkServerDetail, 0)
 	if err != nil {
 		fmt.Println("work Server List err:", string(bytesResult), err)
-		return nil, err
+		return &empty, err
 	}
 
 	if !vipListResult.Success {
-		return &[]WorkServerDetail{}, errors.New(vipListResult.Message)
+		return &empty, errors.New(vipListResult.Message)
 	}
 
 	return &vipListResult.Data, nil

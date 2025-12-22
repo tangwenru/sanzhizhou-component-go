@@ -41,14 +41,16 @@ func (this *Finance) DetailByTarget(
 		TargetId:    targetId,
 	}
 
+	empty := sanzhizhouComponentConfig.FinanceDetail{}
 	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "finance/detailByTarget", &query, &result)
 
 	if err != nil {
 		fmt.Println("Finance-Detail-err:", string(bytesResult), err)
+		return &empty, &result
 	}
 
 	if !result.Success {
-		return nil, &result
+		return &empty, &result
 	}
 
 	return &result.Data, &result

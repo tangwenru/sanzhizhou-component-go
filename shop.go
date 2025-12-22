@@ -21,15 +21,17 @@ func (this *Shop) GetLastSyncTime(userToken string, shopId int64) (*sanzhizhouCo
 	}
 	lastSyncTimeResult := sanzhizhouComponentConfig.GetLastSyncTimeResult{}
 
+	empty := sanzhizhouComponentConfig.GetLastSyncTime{}
+
 	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "shop/getLastSyncTime", &query, &lastSyncTimeResult)
 
 	if err != nil {
-		fmt.Println("Shop GetLastSyncTime err:", string(bytesResult), err)
-		return nil, err
+		fmt.Println("Shop GetLast SyncTime err:", string(bytesResult), err)
+		return &empty, err
 	}
 
 	if !lastSyncTimeResult.Success {
-		return &sanzhizhouComponentConfig.GetLastSyncTime{}, errors.New(lastSyncTimeResult.Message)
+		return &empty, errors.New(lastSyncTimeResult.Message)
 	}
 
 	return &lastSyncTimeResult.Data, nil
@@ -45,16 +47,16 @@ func (this *Shop) List(
 		CommercePlatformId: commercePlatformId,
 	}
 	shopDictResult := sanzhizhouComponentConfig.ShopListResult{}
-
+	empty := sanzhizhouComponentConfig.ShopListData{}
 	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "shop/list", &query, &shopDictResult)
 
 	if err != nil {
-		fmt.Println("Shop GetLastSyncTime err:", string(bytesResult), err)
-		return nil, err
+		fmt.Println("Shop GetLast SyncTime err:", string(bytesResult), err)
+		return &empty, err
 	}
 
 	if !shopDictResult.Success {
-		return &sanzhizhouComponentConfig.ShopListData{}, errors.New(shopDictResult.Message)
+		return &empty, errors.New(shopDictResult.Message)
 	}
 
 	return &shopDictResult.Data, nil
@@ -77,14 +79,16 @@ func (this *Shop) Dict(
 
 	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "shop/dict", &query, &shopDictResult)
 
+	empty := make(map[int64]sanzhizhouComponentConfig.ShopBaseInfo)
+
 	if err != nil {
 		fmt.Println("Shop GetLastSyncTime err:", string(bytesResult), err)
 		shopDictResult.Message = err.Error()
-		return &shopDictResult.Data, err
+		return &empty, err
 	}
 
 	if !shopDictResult.Success {
-		return &map[int64]sanzhizhouComponentConfig.ShopBaseInfo{}, errors.New(shopDictResult.Message)
+		return &empty, errors.New(shopDictResult.Message)
 	}
 
 	return &shopDictResult.Data, nil
@@ -101,14 +105,16 @@ func (this *Shop) Detail(
 
 	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "shop/detail", &query, &shopDetailResult)
 
+	empty := sanzhizhouComponentConfig.ShopDetail{}
+
 	if err != nil {
 		fmt.Println("Shop Detail err:", string(bytesResult), err)
 		shopDetailResult.Message = err.Error()
-		return &shopDetailResult.Data, &shopDetailResult
+		return &empty, &shopDetailResult
 	}
 
 	if !shopDetailResult.Success {
-		return &sanzhizhouComponentConfig.ShopDetail{}, &shopDetailResult
+		return &empty, &shopDetailResult
 	}
 
 	return &shopDetailResult.Data, &shopDetailResult
@@ -124,14 +130,14 @@ func (this *Shop) ListByDomesticWarehouseId(
 	shopDetailResult := sanzhizhouComponentConfig.ListByDomesticWarehouseIdResult{}
 
 	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "shop/listByDomesticWarehouseId", &query, &shopDetailResult)
-
+	empty := make([]int64, 0)
 	if err != nil {
 		fmt.Println("Shop Detail err:", string(bytesResult), err)
-		return nil, err
+		return &empty, err
 	}
 
 	if !shopDetailResult.Success {
-		return &[]int64{}, errors.New(shopDetailResult.Message)
+		return &empty, errors.New(shopDetailResult.Message)
 	}
 
 	return &shopDetailResult.Data, nil
@@ -188,13 +194,15 @@ func (this *Shop) GetPublishShopIdList(
 	}
 	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "shop/getPublishShopIdList", &query, &saveResult)
 
+	empty := make([]int64, 0)
+
 	if err != nil {
 		fmt.Println("Shop GetPublishShopIdList err:", string(bytesResult), err)
-		return nil, err
+		return &empty, err
 	}
 
 	if !saveResult.Success {
-		return &[]int64{}, errors.New(saveResult.Message)
+		return &empty, errors.New(saveResult.Message)
 	}
 
 	return &saveResult.Data, nil

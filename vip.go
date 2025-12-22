@@ -55,12 +55,15 @@ func (this *Vip) ListByProductType(userToken string, productType string, domain 
 
 	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "vip/listByProductType", &query, &vipListResult)
 
+	empty := make([]VipList, 0)
+
 	if err != nil {
 		fmt.Println("Vip List By Product Type err:", string(bytesResult), err)
+		return err, &empty
 	}
 
 	if !vipListResult.Success {
-		return errors.New(vipListResult.Message), nil
+		return errors.New(vipListResult.Message), &empty
 	}
 
 	return err, &vipListResult.Data
