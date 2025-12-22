@@ -11,11 +11,11 @@ import (
 func main() {
 	//GetLastSyncTime()
 	//ShopList()
-	//ShopDetail()
+	ShopDetail()
 	//ShopDict()
 	//ShopSaveStatus()
 	//SaveLastSyncTime()
-	GetPublishShopIdList()
+	//GetPublishShopIdList()
 }
 
 func GetLastSyncTime() {
@@ -58,8 +58,8 @@ func ShopDict() {
 func ShopDetail() {
 	shop := sanzhizhouComponent.Shop{}
 	result, err := shop.Detail(
-		"a1217689d4c f44f8",
-		20,
+		mainConfig.UserToken,
+		35,
 	)
 
 	fmt.Println(fmt.Sprintf("ShopDetail result: %+v", result))
