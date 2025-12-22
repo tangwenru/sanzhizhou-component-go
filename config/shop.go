@@ -20,6 +20,7 @@ type GetLastSyncTime struct {
 
 type ShopBaseInfo struct {
 	Id             int64          `json:"id"`
+	UserId         int64          `json:"userId"`
 	Name           string         `json:"name"`
 	NameRemark     string         `json:"nameRemark"`
 	GroupName      string         `json:"groupName"`
