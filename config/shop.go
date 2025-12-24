@@ -166,15 +166,37 @@ type ShopSaveLastSyncTimeQuery struct {
 type ShopSaveLastSyncTimeResult struct {
 	Success bool   `json:"success"`
 	Message string `json:"message,omitempty"`
-	Code    string `json:"code"`
+	Code    string `json:"code,omitempty"`
 }
 
 type ShopGetPublishShopIdListQuery struct {
 	CommercePlatformId int64
 }
 type ShopGetPublishShopIdListResult struct {
-	Success bool    `json:"success"`
+	Success bool    `json:"success,omitempty"`
 	Message string  `json:"message,omitempty"`
 	Data    []int64 `json:"data"`
-	Code    string  `json:"code"`
+	Code    string  `json:"code,omitempty"`
+}
+
+// //
+type ShopApiInfoDictQuery struct {
+	ShopIdList []int64 `json:"shopIdList"`
+}
+
+type ShopGetApiInfoDictResult struct {
+	Success bool                         `json:"success,omitempty"`
+	Message string                       `json:"message,omitempty"`
+	Data    ShopGetApiInfoDictResultData `json:"data,omitempty"`
+	Code    string                       `json:"code,omitempty"`
+}
+
+type ShopGetApiInfoDictResultData map[int64]ShopGetApiInfoDictResultDataList
+
+type ShopGetApiInfoDictResultDataList struct {
+	ShopId  int64  `json:"shopId"`
+	ApiId   string `json:"apiId"`
+	ApiKey  string `json:"apiKey"`
+	Enabled bool   `json:"enabled"`
+	IsBan   bool   `json:"isBan"`
 }

@@ -207,3 +207,33 @@ func (this *Shop) GetPublishShopIdList(
 
 	return &saveResult.Data, nil
 }
+
+// 单纯的获取 api info
+func (this *Shop) GetApiInfoDict(
+	userToken string,
+	shopIdList *[]int64,
+) (*sanzhizhouComponentConfig.ShopGetApiInfoDictResultData, *sanzhizhouComponentConfig.ShopGetApiInfoDictResult) {
+	saveResult := sanzhizhouComponentConfig.ShopGetApiInfoDictResult{}
+	empty := sanzhizhouComponentConfig.ShopGetApiInfoDictResultData{}
+
+	if len(*shopIdList) == 0 {
+		saveResult.Message = "shopIdList 不能为空"
+		return &empty, &saveResult
+	}
+
+	query := sanzhizhouComponentConfig.ShopApiInfoDictQuery{
+		ShopIdList: *shopIdList,
+	}
+	_, err := sanzhizhouComponentLib.MainSystem(userToken, "shop/getApiInfoDict", &query, &saveResult)
+
+	if err != nil {
+		//fmt.Println("Shop ApiInfoDict err:", string(bytesResult), err)
+		return &empty, &saveResult
+	}
+
+	if !saveResult.Success {
+		return &empty, &saveResult
+	}
+
+	return &saveResult.Data, &saveResult
+}

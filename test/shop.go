@@ -12,10 +12,11 @@ func main() {
 	//GetLastSyncTime()
 	//ShopList()
 	//ShopDetail()
-	ShopDict()
+	//ShopDict()
 	//ShopSaveStatus()
 	//SaveLastSyncTime()
 	//GetPublishShopIdList()
+	GetApiInfoDict()
 }
 
 func GetLastSyncTime() {
@@ -102,4 +103,16 @@ func GetPublishShopIdList() {
 
 	fmt.Println(fmt.Sprintf("SaveLastSyncTime result: %+v", result))
 	fmt.Println("err:", err)
+}
+
+func GetApiInfoDict() {
+	shop := sanzhizhouComponent.Shop{}
+	_, result := shop.GetApiInfoDict(
+		mainConfig.UserToken,
+		&[]int64{
+			6911,
+		},
+	)
+
+	fmt.Println(fmt.Sprintf("GetApiInfoDict result: %+v", result))
 }
