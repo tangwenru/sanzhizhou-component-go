@@ -108,9 +108,11 @@ func GetPublishShopIdList() {
 func GetApiInfoDict() {
 	shop := sanzhizhouComponent.Shop{}
 	_, result := shop.GetApiInfoDict(
-		mainConfig.UserToken,
+		mainConfig.StaffToken,
 		&[]int64{
 			6911,
+			6995,
+			2,
 		},
 	)
 
