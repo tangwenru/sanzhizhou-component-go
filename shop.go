@@ -221,8 +221,10 @@ func (this *Shop) GetApiInfoDict(
 		return &empty, &saveResult
 	}
 
+	//去重
+	idList := sanzhizhouComponentLib.RemoveDuplicatesIn64(shopIdList)
 	query := sanzhizhouComponentConfig.ShopApiInfoDictQuery{
-		ShopIdList: *shopIdList,
+		ShopIdList: *idList,
 	}
 	_, err := sanzhizhouComponentLib.MainSystem(userToken, "shop/getApiInfoDict", &query, &saveResult)
 
