@@ -197,7 +197,7 @@ func (this *Shop) GetPublishShopIdList(
 	empty := make([]int64, 0)
 
 	if err != nil {
-		fmt.Println("Shop GetPublishShopIdList err:", string(bytesResult), err)
+		fmt.Println("Shop GetPublish-ShopIdList err:", string(bytesResult), err)
 		return &empty, err
 	}
 
@@ -225,6 +225,45 @@ func (this *Shop) GetApiInfoDict(
 		ShopIdList: *shopIdList,
 	}
 	_, err := sanzhizhouComponentLib.MainSystem(userToken, "shop/getApiInfoDict", &query, &saveResult)
+
+	if err != nil {
+		//fmt.Println("Shop ApiInfoDict err:", string(bytesResult), err)
+		return &empty, &saveResult
+	}
+
+	if !saveResult.Success {
+		return &empty, &saveResult
+	}
+
+	return &saveResult.Data, &saveResult
+}
+
+func (this *Shop) ApiInfoList(
+	staffToken string,
+	commercePlatformId int64,
+	current,
+	pageSize int,
+) (
+	*sanzhizhouComponentConfig.ShopApiInfoListResultData,
+	*sanzhizhouComponentConfig.ShopApiInfoListResult,
+) {
+	saveResult := sanzhizhouComponentConfig.ShopApiInfoListResult{}
+	empty := sanzhizhouComponentConfig.ShopApiInfoListResultData{}
+
+	if current <= 0 {
+		current = 1
+	}
+
+	if pageSize <= 0 {
+		pageSize = 1
+	}
+
+	query := sanzhizhouComponentConfig.ShopApiInfoListQuery{
+		CommercePlatformId: commercePlatformId,
+		Current:            current,
+		PageSize:           pageSize,
+	}
+	_, err := sanzhizhouComponentLib.MainSystem(staffToken, "shop/apiInfoList", &query, &saveResult)
 
 	if err != nil {
 		//fmt.Println("Shop ApiInfoDict err:", string(bytesResult), err)

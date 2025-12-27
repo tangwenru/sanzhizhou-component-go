@@ -194,6 +194,36 @@ type ShopGetApiInfoDictResult struct {
 type ShopGetApiInfoDictResultData map[int64]ShopGetApiInfoDictResultDataList
 
 type ShopGetApiInfoDictResultDataList struct {
+	UserId  int64  `json:"userId"`
+	ShopId  int64  `json:"shopId"`
+	ApiId   string `json:"apiId"`
+	ApiKey  string `json:"apiKey"`
+	Enabled bool   `json:"enabled"`
+	IsBan   bool   `json:"isBan"`
+}
+
+///////
+
+type ShopApiInfoListQuery struct {
+	CommercePlatformId int64 `json:"commercePlatformId"`
+	Current            int   `json:"current"`
+	PageSize           int   `json:"pageSize"`
+}
+
+type ShopApiInfoListResult struct {
+	Success bool                      `json:"success,omitempty"`
+	Message string                    `json:"message,omitempty"`
+	Data    ShopApiInfoListResultData `json:"data,omitempty"`
+	Code    string                    `json:"code,omitempty"`
+}
+
+type ShopApiInfoListResultData struct {
+	List       []ShopApiInfoListResultDataList `json:"list"`
+	Pagination Pagination                      `json:"pagination"`
+}
+
+type ShopApiInfoListResultDataList struct {
+	UserId  int64  `json:"userId"`
 	ShopId  int64  `json:"shopId"`
 	ApiId   string `json:"apiId"`
 	ApiKey  string `json:"apiKey"`

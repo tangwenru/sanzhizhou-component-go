@@ -16,7 +16,8 @@ func main() {
 	//ShopSaveStatus()
 	//SaveLastSyncTime()
 	//GetPublishShopIdList()
-	GetApiInfoDict()
+	//GetApiInfoDict()
+	ApiInfoList()
 }
 
 func GetLastSyncTime() {
@@ -117,4 +118,16 @@ func GetApiInfoDict() {
 	)
 
 	fmt.Println(fmt.Sprintf("GetApiInfoDict result: %+v", result))
+}
+
+func ApiInfoList() {
+	shop := sanzhizhouComponent.Shop{}
+	_, result := shop.ApiInfoList(
+		mainConfig.StaffToken,
+		7,
+		1,
+		10,
+	)
+
+	fmt.Println(fmt.Sprintf("ApiInfoList result: %+v", result))
 }
