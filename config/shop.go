@@ -194,12 +194,13 @@ type ShopGetApiInfoDictResult struct {
 type ShopGetApiInfoDictResultData map[int64]ShopGetApiInfoDictResultDataList
 
 type ShopGetApiInfoDictResultDataList struct {
-	UserId  int64  `json:"userId"`
-	ShopId  int64  `json:"shopId"`
-	ApiId   string `json:"apiId"`
-	ApiKey  string `json:"apiKey"`
-	Enabled bool   `json:"enabled"`
-	IsBan   bool   `json:"isBan"`
+	UserId   int64  `json:"userId"`
+	ShopId   int64  `json:"shopId"`
+	ApiId    string `json:"apiId"`
+	ApiKey   string `json:"apiKey"`
+	Enabled  bool   `json:"enabled"`
+	IsBan    bool   `json:"isBan"`
+	Currency string `json:"currency"`
 }
 
 ///////
@@ -223,10 +224,11 @@ type ShopApiInfoListResultData struct {
 }
 
 type ShopApiInfoListResultDataList struct {
-	UserId  int64  `json:"userId"`
-	ShopId  int64  `json:"shopId"`
-	ApiId   string `json:"apiId"`
-	ApiKey  string `json:"apiKey"`
-	Enabled bool   `json:"enabled"`
-	IsBan   bool   `json:"isBan"`
+	UserId   int64  `json:"userId"`
+	ShopId   int64  `json:"shopId"`
+	ApiId    string `json:"apiId"`
+	ApiKey   string `json:"apiKey"`
+	Enabled  bool   `json:"enabled"`
+	IsBan    bool   `json:"isBan"`
+	Currency string `json:"currency"`
 }

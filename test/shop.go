@@ -16,8 +16,8 @@ func main() {
 	//ShopSaveStatus()
 	//SaveLastSyncTime()
 	//GetPublishShopIdList()
-	//GetApiInfoDict()
-	ApiInfoList()
+	GetApiInfoDict()
+	//ApiInfoList()
 }
 
 func GetLastSyncTime() {
