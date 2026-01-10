@@ -16,8 +16,9 @@ func main() {
 	//ShopSaveStatus()
 	//SaveLastSyncTime()
 	//GetPublishShopIdList()
-	GetApiInfoDict()
+	//GetApiInfoDict()
 	//ApiInfoList()
+	UpdatePublishSelect()
 }
 
 func GetLastSyncTime() {
@@ -130,4 +131,22 @@ func ApiInfoList() {
 	)
 
 	fmt.Println(fmt.Sprintf("ApiInfoList result: %+v", result))
+}
+
+func UpdatePublishSelect() {
+	shop := sanzhizhouComponent.Shop{}
+	result := shop.UpdatePublishSelect(
+		mainConfig.UserToken,
+		&sanzhizhouComponentConfig.ShopUpdatePublishSelectQuery{
+			CommercePlatformId: 7,
+			IsPublishSelectList: []sanzhizhouComponentConfig.ShopUpdatePublishSelectList{
+				{
+					IsPublishSelect: true,
+					ShopId:          7000,
+				},
+			},
+		},
+	)
+
+	fmt.Println(fmt.Sprintf("UpdatePublishSelect result: %+v", result))
 }
