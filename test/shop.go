@@ -148,5 +148,5 @@ func UpdatePublishSelect() {
 		},
 	)
 
-	fmt.Println(fmt.Sprintf("UpdatePublishSelect result: %+v", result))
+	fmt.Println(fmt.Sprintf("Update-Publish-Select result: %+v", result))
 }
