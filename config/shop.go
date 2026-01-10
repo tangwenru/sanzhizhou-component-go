@@ -232,3 +232,19 @@ type ShopApiInfoListResultDataList struct {
 	IsBan    bool   `json:"isBan"`
 	Currency string `json:"currency"`
 }
+
+type ShopUpdatePublishSelectQuery struct {
+	CommercePlatformId  int64                         `json:"commercePlatformId"`
+	IsPublishSelectList []ShopUpdatePublishSelectList `json:"isPublishSelectList"`
+}
+
+type ShopUpdatePublishSelectList struct {
+	IsPublishSelect bool  `json:"isPublishSelect"`
+	ShopId          int64 `json:"shopId"`
+}
+
+type ShopUpdatePublishSelectResult struct {
+	Success bool   `json:"success,omitempty"`
+	Message string `json:"message,omitempty"`
+	Code    string `json:"code,omitempty"`
+}

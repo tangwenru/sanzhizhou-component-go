@@ -278,3 +278,18 @@ func (this *Shop) ApiInfoList(
 
 	return &saveResult.Data, &saveResult
 }
+
+func (this *Shop) UpdatePublishSelect(
+	userToken string,
+	query *sanzhizhouComponentConfig.ShopUpdatePublishSelectQuery,
+) *sanzhizhouComponentConfig.ShopUpdatePublishSelectResult {
+	saveResult := sanzhizhouComponentConfig.ShopUpdatePublishSelectResult{}
+
+	_, err := sanzhizhouComponentLib.MainSystem(userToken, "shop/updatePublishSelect", &query, &saveResult)
+
+	if err != nil {
+		return &saveResult
+	}
+
+	return &saveResult
+}
