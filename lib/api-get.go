@@ -27,6 +27,12 @@ func SubsystemVideoPublish(userId string, apiPath string, data interface{}, resu
 
 func ApiGet(userToken string, apiUrl, apiPath string, data interface{}, result interface{}) ([]byte, error) {
 	url := apiUrl + strings.ToLower(apiPath)
+	regSelfUrl := regexp.MustCompile("^https?:")
+	// 强行是用自己的 domain
+	if regSelfUrl.MatchString(apiPath) {
+		url = apiPath
+	}
+
 	req := httplib.Get(url)
 	req.SetTLSClientConfig(&tls.Config{InsecureSkipVerify: true})
 	dataByte, err := json.Marshal(data)

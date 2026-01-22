@@ -241,7 +241,7 @@ func (this *Shop) GetApiInfoDict(
 }
 
 func (this *Shop) ApiInfoList(
-	staffToken string,
+	userToken string,
 	commercePlatformId int64,
 	current,
 	pageSize int,
@@ -265,7 +265,7 @@ func (this *Shop) ApiInfoList(
 		Current:            current,
 		PageSize:           pageSize,
 	}
-	_, err := sanzhizhouComponentLib.MainSystem(staffToken, "shop/apiInfoList", &query, &saveResult)
+	_, err := sanzhizhouComponentLib.MainSystem(userToken, "shop/apiInfoList", &query, &saveResult)
 
 	if err != nil {
 		//fmt.Println("Shop ApiInfoDict err:", string(bytesResult), err)

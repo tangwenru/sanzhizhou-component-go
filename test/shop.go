@@ -124,7 +124,7 @@ func GetApiInfoDict() {
 func ApiInfoList() {
 	shop := sanzhizhouComponent.Shop{}
 	_, result := shop.ApiInfoList(
-		mainConfig.StaffToken,
+		mainConfig.UserToken,
 		7,
 		1,
 		10,
