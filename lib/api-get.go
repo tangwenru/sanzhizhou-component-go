@@ -84,7 +84,7 @@ func ApiPost(userToken string, apiUrl, apiPath string, data interface{}, result 
 		url = apiPath
 	}
 
-	req := httplib.Get(url)
+	req := httplib.Post(url)
 	req.SetTLSClientConfig(&tls.Config{InsecureSkipVerify: true})
 	dataByte, err := json.Marshal(data)
 
