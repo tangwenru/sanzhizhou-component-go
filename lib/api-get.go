@@ -100,11 +100,15 @@ func ApiPost(userToken string, apiUrl, apiPath string, data interface{}, result 
 
 	//fmt.Println("ApiGet:", global.IdEncrypt(userId), url, postData)
 
-	req.Body(map[string]string{
+	bodyData := map[string]string{
 		"data":      postData,
 		"userToken": userToken,
 		"subSystem": subSystem,
-	})
+	}
+
+	bodyByte, _ := json.Marshal(bodyData)
+
+	req.Body(bodyByte)
 
 	bytesResult, err := req.Bytes()
 	if err != nil {
