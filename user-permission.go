@@ -31,6 +31,18 @@ type UserPermissionDeductResult struct {
 	Code    string `json:"code"`
 }
 
+var UserPermissionKindNameDict = struct {
+	HasShareUrl               string
+	ImageTranslateAmount      string
+	GoodsImageTranslateAmount string // 电商质量翻译
+	TextTranslateAmount       string
+}{
+	HasShareUrl:               "has-share-url",
+	ImageTranslateAmount:      "image-translate-amount",
+	GoodsImageTranslateAmount: "goods-image-translate-amount",
+	TextTranslateAmount:       "text-translate-amount",
+}
+
 func (this *UserPermission) Detail(userToken string) (*UserPermissionDetailResult, *UserPermissionDetail) {
 	userDetailResult := UserPermissionDetailResult{}
 	query := map[string]string{}
