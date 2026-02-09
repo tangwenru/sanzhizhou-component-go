@@ -28,7 +28,7 @@ func UserPermissionDeduct() {
 	result := userPermission.Deduct(
 		mainConfig.UserToken,
 		1,                        //  int64,
-		"image_translate_amount", // permissionKind string,
+		"image-translate-amount", // permissionKind string,
 		true,                     // isDeduct bool,
 	)
 
@@ -40,7 +40,7 @@ func UserPermissionDeductRefund() {
 	result := userPermission.Deduct(
 		mainConfig.UserToken,
 		1,                        //  int64,
-		"image_translate_amount", // permissionKind string,
+		"image-translate-amount", // permissionKind string,
 		false,                    // isDeduct bool,
 	)
 

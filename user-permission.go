@@ -22,6 +22,7 @@ type UserPermissionDetail struct {
 	HasShareUrl               bool  `json:"hasShareUrl"`
 	ImageTranslateAmount      int   `json:"imageTranslateAmount"`
 	GoodsImageTranslateAmount int   `json:"goodsImageTranslateAmount"` // 电商质量翻译
+	TextTranslateAmount       int   `json:"textTranslateAmount"`
 }
 
 type UserPermissionDeductResult struct {
