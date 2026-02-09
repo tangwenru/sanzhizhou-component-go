@@ -65,12 +65,14 @@ func (this *UserPermission) Detail(userToken string) (*UserPermissionDetailResul
 // 扣费
 func (this *UserPermission) Deduct(
 	userToken string,
-	aiTaskId int64,
+	taskId int64,
+	aiTaskId string,
 	permissionKind string,
 	isDeduct bool, // 扣除，还是返还
 ) *UserPermissionDeductResult {
 	userDeductResult := UserPermissionDeductResult{}
 	query := map[string]interface{}{
+		"taskId":         taskId,
 		"aiTaskId":       aiTaskId,
 		"permissionKind": permissionKind,
 		"isDeduct":       isDeduct,
