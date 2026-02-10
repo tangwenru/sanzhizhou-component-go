@@ -35,12 +35,12 @@ var UserPermissionKindNameDict = struct {
 	HasShareUrl               string
 	ImageTranslateAmount      string
 	GoodsImageTranslateAmount string // 电商质量翻译
-	TextTranslateAmount       string
+	AiCoinAmount              string
 }{
 	HasShareUrl:               "has-share-url",
 	ImageTranslateAmount:      "image-translate-amount",
 	GoodsImageTranslateAmount: "goods-image-translate-amount",
-	TextTranslateAmount:       "text-translate-amount",
+	AiCoinAmount:              "ai-coin-amount",
 }
 
 func (this *UserPermission) Detail(userToken string) (*UserPermissionDetailResult, *UserPermissionDetail) {
