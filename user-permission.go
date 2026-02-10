@@ -69,15 +69,17 @@ func (this *UserPermission) Deduct(
 	aiTaskId string,
 	permissionKind,
 	taskKindName string,
+	speedTrueAiCoin int,
 	isDeduct bool, // 扣除，还是返还
 ) *UserPermissionDeductResult {
 	userDeductResult := UserPermissionDeductResult{}
 	query := map[string]interface{}{
-		"taskId":         taskId,
-		"aiTaskId":       aiTaskId,
-		"permissionKind": permissionKind,
-		"taskKindName":   taskKindName,
-		"isDeduct":       isDeduct,
+		"taskId":          taskId,
+		"aiTaskId":        aiTaskId,
+		"permissionKind":  permissionKind,
+		"taskKindName":    taskKindName,
+		"speedTrueAiCoin": speedTrueAiCoin,
+		"isDeduct":        isDeduct,
 	}
 	_, err := sanzhizhouComponentLib.MainSystem(userToken, "userPermission/deduct", &query, &userDeductResult)
 
