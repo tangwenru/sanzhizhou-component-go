@@ -27,9 +27,11 @@ func UserPermissionDeduct() {
 	userPermission := sanzhizhouComponent.UserPermission{}
 	result := userPermission.Deduct(
 		mainConfig.UserToken,
-		1,                        //  int64,
+		1, //  int64,
+		"",
 		"image-translate-amount", // permissionKind string,
-		true,                     // isDeduct bool,
+		"",
+		true, // isDeduct bool,
 	)
 
 	fmt.Println(fmt.Sprintf("UserPermission Deduct result: %+v", result))
@@ -39,9 +41,11 @@ func UserPermissionDeductRefund() {
 	userPermission := sanzhizhouComponent.UserPermission{}
 	result := userPermission.Deduct(
 		mainConfig.UserToken,
-		1,                        //  int64,
+		1, //  int64,
+		"",
 		"image-translate-amount", // permissionKind string,
-		false,                    // isDeduct bool,
+		"",
+		false, // isDeduct bool,
 	)
 
 	fmt.Println(fmt.Sprintf("UserPermission Deduct result: %+v", result))

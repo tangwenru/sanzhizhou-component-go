@@ -67,7 +67,8 @@ func (this *UserPermission) Deduct(
 	userToken string,
 	taskId int64,
 	aiTaskId string,
-	permissionKind string,
+	permissionKind,
+	taskKindName string,
 	isDeduct bool, // 扣除，还是返还
 ) *UserPermissionDeductResult {
 	userDeductResult := UserPermissionDeductResult{}
@@ -75,6 +76,7 @@ func (this *UserPermission) Deduct(
 		"taskId":         taskId,
 		"aiTaskId":       aiTaskId,
 		"permissionKind": permissionKind,
+		"taskKindName":   taskKindName,
 		"isDeduct":       isDeduct,
 	}
 	_, err := sanzhizhouComponentLib.MainSystem(userToken, "userPermission/deduct", &query, &userDeductResult)
