@@ -57,7 +57,7 @@ func UserPermissionDeductRefund() {
 func UserPermissionGetValueType() {
 	userPermission := sanzhizhouComponent.UserPermission{}
 	result := userPermission.GetValueType(
-		sanzhizhouComponent.UserPermissionKindNameDict.AiCoinAmount.Kind,
+		sanzhizhouComponent.UserPermissionKindNameDict.AiCoin.Kind,
 	)
 
 	fmt.Println(fmt.Sprintf("UserPermission GetValueType: %+v", result))

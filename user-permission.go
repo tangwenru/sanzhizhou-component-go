@@ -17,15 +17,15 @@ var UserPermissionKindNameDict = sanzhizhouComponentConfig.UserPermissionKindNam
 		Kind:      "has-share-url",
 		ValueType: "bool",
 	},
-	ImageTranslateAmount: sanzhizhouComponentConfig.UserPermissionKindNameDictItem{
+	ImageTranslate: sanzhizhouComponentConfig.UserPermissionKindNameDictItem{
 		Kind:      "image-translate",
 		ValueType: "int64",
 	},
-	GoodsImageTranslateAmount: sanzhizhouComponentConfig.UserPermissionKindNameDictItem{
+	GoodsImageTranslate: sanzhizhouComponentConfig.UserPermissionKindNameDictItem{
 		Kind:      "goods-image-translate",
 		ValueType: "int64",
 	},
-	AiCoinAmount: sanzhizhouComponentConfig.UserPermissionKindNameDictItem{
+	AiCoin: sanzhizhouComponentConfig.UserPermissionKindNameDictItem{
 		Kind:      "ai-coin",
 		ValueType: "int64",
 	},
