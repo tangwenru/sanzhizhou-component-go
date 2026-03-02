@@ -31,6 +31,7 @@ func UserPermissionDeduct() {
 		"",
 		"image-translate-amount", // permissionKind string,
 		"",
+		1,
 		true, // isDeduct bool,
 	)
 
@@ -45,6 +46,7 @@ func UserPermissionDeductRefund() {
 		"",
 		"image-translate-amount", // permissionKind string,
 		"",
+		1,
 		false, // isDeduct bool,
 	)
 
