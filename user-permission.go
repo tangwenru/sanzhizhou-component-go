@@ -18,15 +18,15 @@ var UserPermissionKindNameDict = sanzhizhouComponentConfig.UserPermissionKindNam
 		ValueType: "bool",
 	},
 	ImageTranslateAmount: sanzhizhouComponentConfig.UserPermissionKindNameDictItem{
-		Kind:      "image-translate-amount",
+		Kind:      "image-translate",
 		ValueType: "int64",
 	},
 	GoodsImageTranslateAmount: sanzhizhouComponentConfig.UserPermissionKindNameDictItem{
-		Kind:      "goods-image-translate-amount",
+		Kind:      "goods-image-translate",
 		ValueType: "int64",
 	},
 	AiCoinAmount: sanzhizhouComponentConfig.UserPermissionKindNameDictItem{
-		Kind:      "ai-coin-amount",
+		Kind:      "ai-coin",
 		ValueType: "int64",
 	},
 }
