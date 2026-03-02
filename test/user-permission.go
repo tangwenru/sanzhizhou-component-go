@@ -10,7 +10,8 @@ import (
 func main() {
 	//UserPermissionDetail()
 	//UserPermissionDeduct()
-	UserPermissionDeductRefund()
+	//UserPermissionDeductRefund()
+	UserPermissionGetValueType()
 }
 
 func UserPermissionDetail() {
@@ -51,4 +52,13 @@ func UserPermissionDeductRefund() {
 	)
 
 	fmt.Println(fmt.Sprintf("UserPermission Deduct result: %+v", result))
+}
+
+func UserPermissionGetValueType() {
+	userPermission := sanzhizhouComponent.UserPermission{}
+	result := userPermission.GetValueType(
+		sanzhizhouComponent.UserPermissionKindNameDict.AiCoinAmount.Kind,
+	)
+
+	fmt.Println(fmt.Sprintf("UserPermission GetValueType: %+v", result))
 }
