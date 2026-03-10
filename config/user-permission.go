@@ -9,10 +9,10 @@ type UserPermissionDetailResult struct {
 
 type UserPermissionDetail struct {
 	Id                  int64 `json:"id"`
-	HasShareUrl         bool  `json:"hasShareUrl"`
-	ImageTranslate      int   `json:"imageTranslate"`
-	GoodsImageTranslate int   `json:"goodsImageTranslate"` // 电商质量翻译
-	AiCoin              int   `json:"aiCoin"`
+	HasShareUrl         bool  `json:"has-share-url"`
+	ImageTranslate      int   `json:"image-translate"`
+	GoodsImageTranslate int   `json:"goods-image-translate"` // 电商质量翻译
+	AiCoin              int   `json:"ai-coin"`
 }
 
 type UserPermissionDeductResult struct {
@@ -22,10 +22,10 @@ type UserPermissionDeductResult struct {
 }
 
 type UserPermissionKindNameDict struct {
-	HasShareUrl         UserPermissionKindNameDictItem `json:"hasShareUrl"`
-	ImageTranslate      UserPermissionKindNameDictItem `json:"imageTranslate"`
-	GoodsImageTranslate UserPermissionKindNameDictItem `json:"goodsImageTranslate"` // 电商质量翻译
-	AiCoin              UserPermissionKindNameDictItem `json:"aiCoin"`
+	HasShareUrl         UserPermissionKindNameDictItem `json:"has-share-url"`
+	ImageTranslate      UserPermissionKindNameDictItem `json:"image-translate"`
+	GoodsImageTranslate UserPermissionKindNameDictItem `json:"goods-image-translate"` // 电商质量翻译
+	AiCoin              UserPermissionKindNameDictItem `json:"ai-coin"`
 }
 
 type UserPermissionKindNameDictItem struct {
