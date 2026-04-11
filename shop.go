@@ -295,7 +295,7 @@ func (this *Shop) UpdatePublishSelect(
 }
 
 func (this *Shop) DetailByApiId(
-	userToken string,
+	staffToken string,
 	apiId string,
 ) (*sanzhizhouComponentConfig.ShopDetailByApiIdResult, *sanzhizhouComponentConfig.ShopDetailByApiIdResultData) {
 	saveResult := sanzhizhouComponentConfig.ShopDetailByApiIdResult{}
@@ -308,7 +308,7 @@ func (this *Shop) DetailByApiId(
 	}
 
 	_, err := sanzhizhouComponentLib.MainSystemPost(
-		userToken,
+		staffToken,
 		"shop/detailByApiId",
 		&query,
 		&saveResult,
