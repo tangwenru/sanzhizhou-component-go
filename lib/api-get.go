@@ -83,6 +83,24 @@ func ApiPost(userToken string, apiUrl, apiPath string, data interface{}, result 
 	if regSelfUrl.MatchString(apiPath) {
 		url = apiPath
 	}
+	//
+	if strings.Index(url, "?") == -1 {
+		url += "?" // _method=post
+	} else {
+		url += "&" // =post
+	}
+
+	// 子系统名称
+	appName, _ := beego.AppConfig.String("appName")
+	reg := regexp.MustCompile("^api-")
+	subSystem := reg.ReplaceAllString(appName, "")
+
+	url += "&subSystem=" + subSystem
+	url += "&userToken=" + userToken
+	url += "&_method=post"
+	//req.Param("subSystem", subSystem)
+	//req.Param("userToken", userToken)
+	//req.Param("_method", "post")
 
 	req := httplib.Post(url)
 	req.SetTLSClientConfig(&tls.Config{InsecureSkipVerify: true})
@@ -90,20 +108,14 @@ func ApiPost(userToken string, apiUrl, apiPath string, data interface{}, result 
 
 	postData := Encrypt(string(dataByte))
 
-	// 子系统名称
-	appName, _ := beego.AppConfig.String("appName")
-	reg := regexp.MustCompile("^api-")
-	subSystem := reg.ReplaceAllString(appName, "")
-	req.Param("subSystem", subSystem)
-
 	req.Header("Content-Type", "application/json")
 
 	//fmt.Println("ApiGet:", global.IdEncrypt(userId), url, postData)
 
 	bodyData := map[string]string{
-		"data":      postData,
-		"userToken": userToken,
-		"subSystem": subSystem,
+		"data": postData,
+		//"userToken": userToken,
+		//"subSystem": subSystem,
 	}
 
 	bodyByte, _ := json.Marshal(bodyData)
@@ -116,6 +128,8 @@ func ApiPost(userToken string, apiUrl, apiPath string, data interface{}, result 
 		return []byte(""), err
 	}
 
+	//fmt.Println(fmt.Sprintf("reqreqreq: %+v", req.GetRequest()))
+
 	//query := ThirdIpResult{}
 	//errJson := json.Unmarshal(bytesResult, &query)
 	//if errJson != nil {
@@ -126,7 +140,8 @@ func ApiPost(userToken string, apiUrl, apiPath string, data interface{}, result 
 	errJson := json.Unmarshal(bytesResult, result)
 	if errJson != nil {
 		fmt.Println("err post 1:", url)
-		fmt.Println("err api post json:", errJson, string(bytesResult))
+		fmt.Println("err api post err:", errJson)
+		fmt.Println("err api post json:", string(bytesResult))
 		return []byte(""), errJson
 	}
 

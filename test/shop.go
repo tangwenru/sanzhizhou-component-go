@@ -18,7 +18,8 @@ func main() {
 	//GetPublishShopIdList()
 	//GetApiInfoDict()
 	//ApiInfoList()
-	UpdatePublishSelect()
+	//UpdatePublishSelect()
+	DetailByApiId()
 }
 
 func GetLastSyncTime() {
@@ -149,4 +150,15 @@ func UpdatePublishSelect() {
 	)
 
 	fmt.Println(fmt.Sprintf("Update-Publish-Select result: %+v", result))
+}
+
+func DetailByApiId() {
+	shop := sanzhizhouComponent.Shop{}
+	result, outData := shop.DetailByApiId(
+		mainConfig.UserToken,
+		"3250504",
+	)
+
+	fmt.Println(fmt.Sprintf("Update-Publish-DetailByApiId result: %+v", result))
+	fmt.Println(fmt.Sprintf("Update-Publish-DetailByApiId outData: %+v", outData))
 }

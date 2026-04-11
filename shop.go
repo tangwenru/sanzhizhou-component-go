@@ -293,3 +293,34 @@ func (this *Shop) UpdatePublishSelect(
 
 	return &saveResult
 }
+
+func (this *Shop) DetailByApiId(
+	userToken string,
+	apiId string,
+) (*sanzhizhouComponentConfig.ShopDetailByApiIdResult, *sanzhizhouComponentConfig.ShopDetailByApiIdResultData) {
+	saveResult := sanzhizhouComponentConfig.ShopDetailByApiIdResult{}
+	empty := sanzhizhouComponentConfig.ShopDetailByApiIdResultData{}
+
+	query := struct {
+		ApiId string `json:"idList"`
+	}{
+		ApiId: apiId,
+	}
+
+	_, err := sanzhizhouComponentLib.MainSystemPost(
+		userToken,
+		"shop/detailByApiId",
+		&query,
+		&saveResult,
+	)
+
+	if err != nil {
+		return &saveResult, &empty
+	}
+
+	if !saveResult.Success {
+		return &saveResult, &empty
+	}
+
+	return &saveResult, &saveResult.Data
+}

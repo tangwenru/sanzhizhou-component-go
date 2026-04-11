@@ -248,3 +248,17 @@ type ShopUpdatePublishSelectResult struct {
 	Message string `json:"message,omitempty"`
 	Code    string `json:"code,omitempty"`
 }
+
+type ShopDetailByApiIdResult struct {
+	Success bool                        `json:"success,omitempty"`
+	Message string                      `json:"message,omitempty"`
+	Data    ShopDetailByApiIdResultData `json:"data,omitempty"`
+	Code    string                      `json:"code,omitempty"`
+}
+
+type ShopDetailByApiIdResultData struct {
+	ShopId  int64 `json:"shopId"`
+	UserId  int64 `json:"UserId"`
+	Enabled bool  `json:"enabled"`
+	IsBan   bool  `json:"isBan"`
+}
