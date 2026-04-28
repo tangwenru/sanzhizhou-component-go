@@ -31,6 +31,7 @@ type ShopBaseInfo struct {
 	Enabled        bool           `json:"enabled"`
 	StatusMessage  string         `json:"statusMessage"`
 	IsExpired      bool           `json:"isExpired"`
+	ExpireAt       time.Time      `json:"expireAt"`
 }
 
 type ShopApiKeyInfo map[string]string
@@ -96,22 +97,24 @@ type ShopList struct {
 	OrderLastSyncTime time.Time         `json:"orderLastSyncTime"`
 	ApiInfo           map[string]string `json:"apiInfo"`
 
-	IsExpired bool `json:"isExpired"`
+	IsExpired bool      `json:"isExpired"`
+	ExpireAt  time.Time `json:"expireAt"`
 }
 
 type ShopDetail struct {
-	Id                 int64  `json:"id"`
-	UserId             int64  `json:"userId"`
-	PlatformShopId     string `json:"platformShopId"`
-	ShopName           string `json:"shopName"`
-	ShopAvatarUrl      string `json:"shopAvatarUrl"`
-	ShopNameRemark     string `json:"shopNameRemark"`
-	IsLoginValid       bool   `json:"isLoginValid"`
-	ShopOrganizationId int64  `json:"shopOrganizationId"`
-	Enabled            bool   `json:"enabled"`
-	IsBan              bool   `json:"isBan"`
-	IsPublishSelect    bool   `json:"isPublishSelect"`
-	IsExpired          bool   `json:"isExpired"`
+	Id                 int64     `json:"id"`
+	UserId             int64     `json:"userId"`
+	PlatformShopId     string    `json:"platformShopId"`
+	ShopName           string    `json:"shopName"`
+	ShopAvatarUrl      string    `json:"shopAvatarUrl"`
+	ShopNameRemark     string    `json:"shopNameRemark"`
+	IsLoginValid       bool      `json:"isLoginValid"`
+	ShopOrganizationId int64     `json:"shopOrganizationId"`
+	Enabled            bool      `json:"enabled"`
+	IsBan              bool      `json:"isBan"`
+	IsPublishSelect    bool      `json:"isPublishSelect"`
+	IsExpired          bool      `json:"isExpired"`
+	ExpireAt           time.Time `json:"expireAt"`
 
 	IsCloud       bool   `json:"isCloud"`
 	Created       int64  `json:"created"`
@@ -199,14 +202,15 @@ type ShopGetApiInfoDictResult struct {
 type ShopGetApiInfoDictResultData map[int64]ShopGetApiInfoDictResultDataList
 
 type ShopGetApiInfoDictResultDataList struct {
-	UserId    int64  `json:"userId"`
-	ShopId    int64  `json:"shopId"`
-	ApiId     string `json:"apiId"`
-	ApiKey    string `json:"apiKey"`
-	Enabled   bool   `json:"enabled"`
-	IsBan     bool   `json:"isBan"`
-	Currency  string `json:"currency"`
-	IsExpired bool   `json:"isExpired"`
+	UserId    int64     `json:"userId"`
+	ShopId    int64     `json:"shopId"`
+	ApiId     string    `json:"apiId"`
+	ApiKey    string    `json:"apiKey"`
+	Enabled   bool      `json:"enabled"`
+	IsBan     bool      `json:"isBan"`
+	Currency  string    `json:"currency"`
+	IsExpired bool      `json:"isExpired"`
+	ExpireAt  time.Time `json:"expireAt"`
 }
 
 ///////
@@ -230,14 +234,15 @@ type ShopApiInfoListResultData struct {
 }
 
 type ShopApiInfoListResultDataList struct {
-	UserId    int64  `json:"userId"`
-	ShopId    int64  `json:"shopId"`
-	ApiId     string `json:"apiId"`
-	ApiKey    string `json:"apiKey"`
-	Enabled   bool   `json:"enabled"`
-	IsBan     bool   `json:"isBan"`
-	Currency  string `json:"currency"`
-	IsExpired bool   `json:"isExpired"`
+	UserId    int64     `json:"userId"`
+	ShopId    int64     `json:"shopId"`
+	ApiId     string    `json:"apiId"`
+	ApiKey    string    `json:"apiKey"`
+	Enabled   bool      `json:"enabled"`
+	IsBan     bool      `json:"isBan"`
+	Currency  string    `json:"currency"`
+	IsExpired bool      `json:"isExpired"`
+	ExpireAt  time.Time `json:"expireAt"`
 }
 
 type ShopUpdatePublishSelectQuery struct {
@@ -264,9 +269,10 @@ type ShopDetailByApiIdResult struct {
 }
 
 type ShopDetailByApiIdResultData struct {
-	ShopId    int64 `json:"shopId"`
-	UserId    int64 `json:"UserId"`
-	Enabled   bool  `json:"enabled"`
-	IsBan     bool  `json:"isBan"`
-	IsExpired bool  `json:"isExpired"`
+	ShopId    int64     `json:"shopId"`
+	UserId    int64     `json:"UserId"`
+	Enabled   bool      `json:"enabled"`
+	IsBan     bool      `json:"isBan"`
+	IsExpired bool      `json:"isExpired"`
+	ExpireAt  time.Time `json:"expireAt"`
 }
