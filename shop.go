@@ -40,10 +40,12 @@ func (this *Shop) GetLastSyncTime(userToken string, shopId int64) (*sanzhizhouCo
 func (this *Shop) List(
 	userToken string,
 	commercePlatformId int64,
-	showAll bool,
+	current,
+	pageSize int,
 ) (*sanzhizhouComponentConfig.ShopListData, error) {
 	query := sanzhizhouComponentConfig.ShopListResultQuery{
-		ShowAll:            showAll,
+		Current:            current,
+		PageSize:           pageSize,
 		CommercePlatformId: commercePlatformId,
 	}
 	shopDictResult := sanzhizhouComponentConfig.ShopListResult{}
@@ -51,7 +53,7 @@ func (this *Shop) List(
 	bytesResult, err := sanzhizhouComponentLib.MainSystem(userToken, "shop/list", &query, &shopDictResult)
 
 	if err != nil {
-		fmt.Println("Shop GetLast SyncTime err:", string(bytesResult), err)
+		fmt.Println("Shop list err:", string(bytesResult), err)
 		return &empty, err
 	}
 

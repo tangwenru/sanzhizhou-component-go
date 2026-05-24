@@ -53,7 +53,9 @@ type ShopDictResult struct {
 
 type ShopListResultQuery struct {
 	CommercePlatformId int64 `json:"commercePlatformId"`
-	ShowAll            bool  `json:"showExtend"`
+	//ShowAll            bool  `json:"showExtend"`
+	Current  int `json:"current"`
+	PageSize int `json:"pageSize"`
 }
 type ShopListResult struct {
 	Success bool         `json:"success"`
@@ -67,7 +69,7 @@ type ShopListData struct {
 	Pagination struct {
 		Current  int   `json:"current"`
 		PageSize int   `json:"pageSize"`
-		Amount   int64 `json:"amount"`
+		Total    int64 `json:"total"`
 	} `json:"pagination"`
 }
 

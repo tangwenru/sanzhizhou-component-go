@@ -10,7 +10,7 @@ import (
 
 func main() {
 	//GetLastSyncTime()
-	//ShopList()
+	ShopList()
 	//ShopDetail()
 	//ShopDict()
 	//ShopSaveStatus()
@@ -19,7 +19,7 @@ func main() {
 	//GetApiInfoDict()
 	//ApiInfoList()
 	//UpdatePublishSelect()
-	DetailByApiId()
+	//DetailByApiId()
 }
 
 func GetLastSyncTime() {
@@ -36,9 +36,10 @@ func GetLastSyncTime() {
 func ShopList() {
 	shop := sanzhizhouComponent.Shop{}
 	result, err := shop.List(
-		"a1217689d4cb 4f8",
+		mainConfig.UserToken,
 		7,
-		true,
+		1,
+		1,
 	)
 
 	fmt.Println(fmt.Sprintf("ShopList result: %+v", result))
