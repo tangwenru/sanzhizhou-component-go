@@ -67,9 +67,9 @@ type ShopListResult struct {
 type ShopListData struct {
 	List       []ShopList `json:"list"`
 	Pagination struct {
-		Current  int   `json:"current"`
-		PageSize int   `json:"pageSize"`
-		Total    int64 `json:"total"`
+		Current  int `json:"current"`
+		PageSize int `json:"pageSize"`
+		Total    int `json:"total"`
 	} `json:"pagination"`
 }
 
