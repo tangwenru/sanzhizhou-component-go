@@ -5,6 +5,7 @@ type FinanceTransferQuery struct {
 	Money               float64 `json:"money"`
 	Type                string  `json:"type"`
 	Name                string  `json:"name"`
+	ShopId              int64   `json:"shopId"`
 	ExtInfo             string  `json:"extInfo"`
 	TargetId            int64   `json:"targetId"`
 	ToUserDownUserId    int64   `json:"toUserDownUserId"`

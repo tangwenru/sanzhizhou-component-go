@@ -23,7 +23,7 @@ func (this *Finance) Transfer(
 	bytesResult, err := sanzhizhouComponentLib.MainSystem(staffToken, "finance/transfer", &query, &shopDictResult)
 
 	if err != nil {
-		fmt.Println("Finance Transfer err:", string(bytesResult), err)
+		fmt.Println("Finance-Transfer-err:", string(bytesResult), err)
 	}
 
 	return shopDictResult

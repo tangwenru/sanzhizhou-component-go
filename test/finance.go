@@ -22,6 +22,7 @@ func Transfer() {
 			Money:               -3,
 			Type:                "domestic-warehouse-fee",
 			Name:                "转运费",
+			ShopId:              0,
 			ExtInfo:             "",
 			TargetId:            1,
 			ToUserDownUserId:    0,
