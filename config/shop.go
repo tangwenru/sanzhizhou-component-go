@@ -280,6 +280,8 @@ type ShopDetailByApiIdResultData struct {
 }
 
 type ShopTransferShopQuery struct {
+	ShopId   int64 `json:"shopId"`
+	ToUserId int64 `json:"toUserId"`
 }
 
 type ShopTransferShopResult struct {
