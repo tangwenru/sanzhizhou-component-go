@@ -10,7 +10,7 @@ import (
 
 func main() {
 	//GetLastSyncTime()
-	ShopList()
+	//ShopList()
 	//ShopDetail()
 	//ShopDict()
 	//ShopSaveStatus()
@@ -20,6 +20,7 @@ func main() {
 	//ApiInfoList()
 	//UpdatePublishSelect()
 	//DetailByApiId()
+	TransferShop()
 }
 
 func GetLastSyncTime() {
@@ -158,6 +159,20 @@ func DetailByApiId() {
 	result, outData := shop.DetailByApiId(
 		mainConfig.UserToken,
 		"3250504",
+	)
+
+	fmt.Println(fmt.Sprintf("Update-Publish-DetailByApiId result: %+v", result))
+	fmt.Println(fmt.Sprintf("Update-Publish-DetailByApiId outData: %+v", outData))
+}
+
+func TransferShop() {
+	shop := sanzhizhouComponent.Shop{}
+	result, outData := shop.TransferShop(
+		mainConfig.UserToken,
+		&sanzhizhouComponentConfig.ShopTransferShopQuery{
+			ShopId:        128051,
+			ToAccountName: "19941103365",
+		},
 	)
 
 	fmt.Println(fmt.Sprintf("Update-Publish-DetailByApiId result: %+v", result))
