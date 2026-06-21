@@ -24,7 +24,7 @@ func (this *Shop) TransferShop(
 	}
 
 	if !saveResult.Success {
-		return &saveResult, &empty
+		return &saveResult, &saveResult.Data
 	}
 
 	return &saveResult, &saveResult.Data
