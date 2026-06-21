@@ -278,3 +278,16 @@ type ShopDetailByApiIdResultData struct {
 	IsExpired bool      `json:"isExpired"`
 	ExpireAt  time.Time `json:"expireAt"`
 }
+
+type ShopTransferShopQuery struct {
+}
+
+type ShopTransferShopResult struct {
+	Success bool                       `json:"success,omitempty"`
+	Message string                     `json:"message,omitempty"`
+	Code    string                     `json:"code,omitempty"`
+	Data    ShopTransferShopResultData `json:"data,omitempty"`
+}
+
+type ShopTransferShopResultData struct {
+}
