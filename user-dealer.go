@@ -22,7 +22,7 @@ type AllUserIdList []int64
 
 func (this *UserDealer) AllUserIdList(dealerToken string) (
 	*sanzhizhouComponentConfig.UserDealerAllUserIdListResult,
-	*[]sanzhizhouComponentConfig.UserDealerAllUserIdList,
+	*[]int64,
 ) {
 	userDetailResult := sanzhizhouComponentConfig.UserDealerAllUserIdListResult{}
 
