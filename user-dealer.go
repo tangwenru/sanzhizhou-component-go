@@ -11,15 +11,6 @@ import (
 type UserDealer struct {
 }
 
-type UserDealerDetailResult struct {
-	Success bool            `json:"success"`
-	Message string          `json:"message"`
-	Code    string          `json:"code"`
-	Data    []AllUserIdList `json:"data"`
-}
-
-type AllUserIdList []int64
-
 func (this *UserDealer) AllUserIdList(dealerToken string) (
 	*sanzhizhouComponentConfig.UserDealerAllUserIdListResult,
 	*[]int64,
